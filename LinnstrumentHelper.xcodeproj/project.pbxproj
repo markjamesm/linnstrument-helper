@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06B2F9193BCCF05294BB0F5A /* Pods_LinnstrumentHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08B3ECE281F47A03ED03486 /* Pods_LinnstrumentHelper.framework */; };
+		EC2127FF244E8CBF00342DD1 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2127FE244E8CBF00342DD1 /* Conductor.swift */; };
+		EC212804244EB40600342DD1 /* PlayingSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC212803244EB40600342DD1 /* PlayingSurface.swift */; };
+		EC212806244EB70000342DD1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EC212805244EB70000342DD1 /* .gitignore */; };
 		EC69037F244E8C1A008316E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC69037E244E8C1A008316E5 /* AppDelegate.swift */; };
 		EC690381244E8C1A008316E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC690380244E8C1A008316E5 /* ContentView.swift */; };
 		EC690383244E8C1B008316E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC690382244E8C1B008316E5 /* Assets.xcassets */; };
@@ -15,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D08B3ECE281F47A03ED03486 /* Pods_LinnstrumentHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LinnstrumentHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D872DCFA16AF2E1A77F4B8 /* Pods-LinnstrumentHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinnstrumentHelper.debug.xcconfig"; path = "Target Support Files/Pods-LinnstrumentHelper/Pods-LinnstrumentHelper.debug.xcconfig"; sourceTree = "<group>"; };
+		EC2127FE244E8CBF00342DD1 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
+		EC212803244EB40600342DD1 /* PlayingSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingSurface.swift; sourceTree = "<group>"; };
+		EC212805244EB70000342DD1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EC69037B244E8C1A008316E5 /* LinnstrumentHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinnstrumentHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC69037E244E8C1A008316E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC690380244E8C1A008316E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,6 +32,7 @@
 		EC690388244E8C1B008316E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC69038A244E8C1B008316E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC69038B244E8C1B008316E5 /* LinnstrumentHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinnstrumentHelper.entitlements; sourceTree = "<group>"; };
+		FEB927FBED2935E61CBD5AA8 /* Pods-LinnstrumentHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinnstrumentHelper.release.xcconfig"; path = "Target Support Files/Pods-LinnstrumentHelper/Pods-LinnstrumentHelper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,17 +40,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B2F9193BCCF05294BB0F5A /* Pods_LinnstrumentHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BCA3A24DD3AE976D002E538 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5D872DCFA16AF2E1A77F4B8 /* Pods-LinnstrumentHelper.debug.xcconfig */,
+				FEB927FBED2935E61CBD5AA8 /* Pods-LinnstrumentHelper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EC2127FD244E8CAD00342DD1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC2127FE244E8CBF00342DD1 /* Conductor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EC212802244EA87C00342DD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EC690380244E8C1A008316E5 /* ContentView.swift */,
+				EC212803244EB40600342DD1 /* PlayingSurface.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		EC690372244E8C1A008316E5 = {
 			isa = PBXGroup;
 			children = (
+				EC212805244EB70000342DD1 /* .gitignore */,
 				EC69037D244E8C1A008316E5 /* LinnstrumentHelper */,
 				EC69037C244E8C1A008316E5 /* Products */,
+				2BCA3A24DD3AE976D002E538 /* Pods */,
+				F466B50EB6227E6E555EEE69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,8 +95,9 @@
 		EC69037D244E8C1A008316E5 /* LinnstrumentHelper */ = {
 			isa = PBXGroup;
 			children = (
+				EC212802244EA87C00342DD1 /* Views */,
+				EC2127FD244E8CAD00342DD1 /* Model */,
 				EC69037E244E8C1A008316E5 /* AppDelegate.swift */,
-				EC690380244E8C1A008316E5 /* ContentView.swift */,
 				EC690382244E8C1B008316E5 /* Assets.xcassets */,
 				EC690387244E8C1B008316E5 /* Main.storyboard */,
 				EC69038A244E8C1B008316E5 /* Info.plist */,
@@ -74,6 +115,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		F466B50EB6227E6E555EEE69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D08B3ECE281F47A03ED03486 /* Pods_LinnstrumentHelper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -81,6 +130,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC69038E244E8C1B008316E5 /* Build configuration list for PBXNativeTarget "LinnstrumentHelper" */;
 			buildPhases = (
+				5A0F56AF409503410ABC7DF1 /* [CP] Check Pods Manifest.lock */,
 				EC690377244E8C1A008316E5 /* Sources */,
 				EC690378244E8C1A008316E5 /* Frameworks */,
 				EC690379244E8C1A008316E5 /* Resources */,
@@ -132,6 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC212806244EB70000342DD1 /* .gitignore in Resources */,
 				EC690389244E8C1B008316E5 /* Main.storyboard in Resources */,
 				EC690386244E8C1B008316E5 /* Preview Assets.xcassets in Resources */,
 				EC690383244E8C1B008316E5 /* Assets.xcassets in Resources */,
@@ -140,11 +191,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5A0F56AF409503410ABC7DF1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LinnstrumentHelper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EC690377244E8C1A008316E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC212804244EB40600342DD1 /* PlayingSurface.swift in Sources */,
+				EC2127FF244E8CBF00342DD1 /* Conductor.swift in Sources */,
 				EC690381244E8C1A008316E5 /* ContentView.swift in Sources */,
 				EC69037F244E8C1A008316E5 /* AppDelegate.swift in Sources */,
 			);
@@ -279,6 +357,7 @@
 		};
 		EC69038F244E8C1B008316E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5D872DCFA16AF2E1A77F4B8 /* Pods-LinnstrumentHelper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LinnstrumentHelper/LinnstrumentHelper.entitlements;
@@ -302,6 +381,7 @@
 		};
 		EC690390244E8C1B008316E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEB927FBED2935E61CBD5AA8 /* Pods-LinnstrumentHelper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LinnstrumentHelper/LinnstrumentHelper.entitlements;

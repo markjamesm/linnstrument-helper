@@ -1,0 +1,6 @@
+framework module Pods_LinnstrumentHelper {
+  umbrella header "Pods-LinnstrumentHelper-umbrella.h"
+
+  export *
+  module * { export * }
+}
