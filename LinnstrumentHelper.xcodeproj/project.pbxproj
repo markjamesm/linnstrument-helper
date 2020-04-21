@@ -3,14 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		06B2F9193BCCF05294BB0F5A /* Pods_LinnstrumentHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08B3ECE281F47A03ED03486 /* Pods_LinnstrumentHelper.framework */; };
 		EC2127FF244E8CBF00342DD1 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2127FE244E8CBF00342DD1 /* Conductor.swift */; };
-		EC212804244EB40600342DD1 /* PlayingSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC212803244EB40600342DD1 /* PlayingSurface.swift */; };
 		EC212806244EB70000342DD1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EC212805244EB70000342DD1 /* .gitignore */; };
+		EC21280B244F885200342DD1 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = EC21280A244F885200342DD1 /* Grid */; };
+		EC212811244F8FC500342DD1 /* PlayingSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC212810244F8FC500342DD1 /* PlayingSurfaceView.swift */; };
+		EC212813244F9D0400342DD1 /* SmallSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC212812244F9D0400342DD1 /* SmallSurfaceView.swift */; };
 		EC69037F244E8C1A008316E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC69037E244E8C1A008316E5 /* AppDelegate.swift */; };
 		EC690381244E8C1A008316E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC690380244E8C1A008316E5 /* ContentView.swift */; };
 		EC690383244E8C1B008316E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC690382244E8C1B008316E5 /* Assets.xcassets */; };
@@ -22,8 +24,9 @@
 		D08B3ECE281F47A03ED03486 /* Pods_LinnstrumentHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LinnstrumentHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D872DCFA16AF2E1A77F4B8 /* Pods-LinnstrumentHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinnstrumentHelper.debug.xcconfig"; path = "Target Support Files/Pods-LinnstrumentHelper/Pods-LinnstrumentHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		EC2127FE244E8CBF00342DD1 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
-		EC212803244EB40600342DD1 /* PlayingSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingSurface.swift; sourceTree = "<group>"; };
 		EC212805244EB70000342DD1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EC212810244F8FC500342DD1 /* PlayingSurfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingSurfaceView.swift; sourceTree = "<group>"; };
+		EC212812244F9D0400342DD1 /* SmallSurfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSurfaceView.swift; sourceTree = "<group>"; };
 		EC69037B244E8C1A008316E5 /* LinnstrumentHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinnstrumentHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC69037E244E8C1A008316E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC690380244E8C1A008316E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC21280B244F885200342DD1 /* Grid in Frameworks */,
 				06B2F9193BCCF05294BB0F5A /* Pods_LinnstrumentHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				EC690380244E8C1A008316E5 /* ContentView.swift */,
-				EC212803244EB40600342DD1 /* PlayingSurface.swift */,
+				EC212810244F8FC500342DD1 /* PlayingSurfaceView.swift */,
+				EC212812244F9D0400342DD1 /* SmallSurfaceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,6 +145,9 @@
 			dependencies = (
 			);
 			name = LinnstrumentHelper;
+			packageProductDependencies = (
+				EC21280A244F885200342DD1 /* Grid */,
+			);
 			productName = LinnstrumentHelper;
 			productReference = EC69037B244E8C1A008316E5 /* LinnstrumentHelper.app */;
 			productType = "com.apple.product-type.application";
@@ -168,6 +176,9 @@
 				Base,
 			);
 			mainGroup = EC690372244E8C1A008316E5;
+			packageReferences = (
+				EC212809244F885200342DD1 /* XCRemoteSwiftPackageReference "swiftui-grid" */,
+			);
 			productRefGroup = EC69037C244E8C1A008316E5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -221,10 +232,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC212804244EB40600342DD1 /* PlayingSurface.swift in Sources */,
 				EC2127FF244E8CBF00342DD1 /* Conductor.swift in Sources */,
 				EC690381244E8C1A008316E5 /* ContentView.swift in Sources */,
 				EC69037F244E8C1A008316E5 /* AppDelegate.swift in Sources */,
+				EC212811244F8FC500342DD1 /* PlayingSurfaceView.swift in Sources */,
+				EC212813244F9D0400342DD1 /* SmallSurfaceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +437,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC212809244F885200342DD1 /* XCRemoteSwiftPackageReference "swiftui-grid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spacenation/swiftui-grid.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC21280A244F885200342DD1 /* Grid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC212809244F885200342DD1 /* XCRemoteSwiftPackageReference "swiftui-grid" */;
+			productName = Grid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC690373244E8C1A008316E5 /* Project object */;
 }

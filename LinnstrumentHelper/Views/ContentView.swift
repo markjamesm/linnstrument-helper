@@ -12,16 +12,27 @@ import Combine
 
 struct ContentView: View {
     
-   // let c = Conductor()
-    
     @EnvironmentObject var conductor: Conductor
     
     var body: some View {
-        Text("Notenumber: \(conductor.noteNumber)")
-      //  Text("Notes: \(conductor.notesHeld)")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .onAppear() {
-             //   let c = Conductor()
+        
+        VStack {
+        
+        TabView {
+        
+            PlayingSurfaceView()
+            .tabItem {
+                Text("Linnstrument")
+            }
+            
+            SmallSurfaceView()
+            .tabItem {
+                Text("Linnstrument 128")
+            }
+        }
+            Spacer()
+            Text("Notes played")
+            Text("\(self.conductor.noteNumber)")
         }
     }
 }

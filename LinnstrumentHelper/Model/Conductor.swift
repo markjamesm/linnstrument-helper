@@ -56,14 +56,14 @@ class Conductor: AKMIDIListener, ObservableObject {
         offset: MIDITimeStamp) {
         
         DispatchQueue.main.async {
-            self.noteNumber = noteNumber
+            self.noteNumber = 0
             self.notesHeld.remove(noteNumber)
             print(self.notesHeld)
         }
 
         // print("Stop") - Use for debugging purposes.
    //     synthEngine.stopNote(noteNumber: noteNumber)
-        }
+    }
 
     
 }
