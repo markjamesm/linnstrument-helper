@@ -13,7 +13,7 @@ struct PlayingSurfaceView: View {
     @State var selection: Int = 0
     @State var items: [Item] = (0...199).map { Item(number: $0) }
     @State var showSettings: Bool = false
-    @State var style = ModularGridStyle(columns: 20, rows: .fixed(60))
+    @State var style = ModularGridStyle(columns: 25, rows: .fixed(60))
     
     @EnvironmentObject var conductor: Conductor
     
@@ -24,10 +24,10 @@ struct PlayingSurfaceView: View {
             }
             ScrollView(style.axes) {
                 Grid(items) { item in
-                    Card(title: "\(item.number)", color: item.color)
+                    Card(title: "\(item.noteNames[item.number])", color: item.color)
                         .onTapGesture {
                             self.selection = item.number
-                            print(self.items)
+                       //     print(items.)
                         }
                 }
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in

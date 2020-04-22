@@ -17,7 +17,7 @@ struct SmallSurfaceView: View {
             }
             ScrollView(style.axes) {
                 Grid(items) { item in
-                    Card(title: "\(item.number)", color: item.color)
+                    Card(title: "\(item.shortNoteNames[item.number])", color: item.color)
                         .onTapGesture {
                             self.selection = item.number
                             print(self.selection)
