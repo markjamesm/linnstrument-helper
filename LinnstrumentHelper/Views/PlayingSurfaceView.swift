@@ -7,26 +7,58 @@
 //
 
 import SwiftUI
-import Combine
 import Grid
 
 struct PlayingSurfaceView: View {
+    @State var selection: Int = 0
+    @State var items: [Item] = (0...199).map { Item(number: $0) }
+    @State var showSettings: Bool = false
+    @State var style = ModularGridStyle(columns: 20, rows: .fixed(60))
+    
+    @EnvironmentObject var conductor: Conductor
+    
     var body: some View {
-        ScrollView() {
-        
-            Grid(0 ..< 200) {_ in
-                Rectangle()
-                .foregroundColor(.gray)
+        VStack(alignment: .trailing) {
+            Button(action: { self.showSettings = true }) {
+                Text("Settings")
             }
-        }.padding()
+            ScrollView(style.axes) {
+                Grid(items) { item in
+                    Card(title: "\(item.number)", color: item.color)
+                        .onTapGesture {
+                            self.selection = item.number
+                            print(self.items)
+                        }
+                }
+                .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                    RoundedRectangle(cornerRadius: 16)
+                        .strokeBorder(lineWidth: 4)
+                        .foregroundColor(.white)
+                        .frame(
+                            width: preferences[self.selection].width,
+                            height: preferences[self.selection].height
+                        )
+                        .position(
+                            x: preferences[self.selection].midX,
+                            y: preferences[self.selection].midY
+                        )
+                        .animation(.linear)
+                }
+                .padding(16)
+            }
+
+        }
+     //   .sheet(isPresented: self.$showSettings) {
+      //      ModularGridSettingsView(style: self.$style)
+    //    }
         .gridStyle(
-            ModularGridStyle(columns: 20, rows: .fixed(60))
+            self.style
         )
     }
 }
 
 struct PlayingSurfaceView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayingSurfaceView()
+        SmallSurfaceView()
     }
 }

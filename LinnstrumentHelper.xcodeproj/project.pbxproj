@@ -12,7 +12,9 @@
 		EC212806244EB70000342DD1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EC212805244EB70000342DD1 /* .gitignore */; };
 		EC21280B244F885200342DD1 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = EC21280A244F885200342DD1 /* Grid */; };
 		EC212811244F8FC500342DD1 /* PlayingSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC212810244F8FC500342DD1 /* PlayingSurfaceView.swift */; };
-		EC212813244F9D0400342DD1 /* SmallSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC212812244F9D0400342DD1 /* SmallSurfaceView.swift */; };
+		EC212815244FB38F00342DD1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC212814244FB38F00342DD1 /* Item.swift */; };
+		EC212817244FB41F00342DD1 /* SmallSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC212816244FB41F00342DD1 /* SmallSurfaceView.swift */; };
+		EC212819244FB46D00342DD1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC212818244FB46D00342DD1 /* Card.swift */; };
 		EC69037F244E8C1A008316E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC69037E244E8C1A008316E5 /* AppDelegate.swift */; };
 		EC690381244E8C1A008316E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC690380244E8C1A008316E5 /* ContentView.swift */; };
 		EC690383244E8C1B008316E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC690382244E8C1B008316E5 /* Assets.xcassets */; };
@@ -26,7 +28,9 @@
 		EC2127FE244E8CBF00342DD1 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		EC212805244EB70000342DD1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EC212810244F8FC500342DD1 /* PlayingSurfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingSurfaceView.swift; sourceTree = "<group>"; };
-		EC212812244F9D0400342DD1 /* SmallSurfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSurfaceView.swift; sourceTree = "<group>"; };
+		EC212814244FB38F00342DD1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		EC212816244FB41F00342DD1 /* SmallSurfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSurfaceView.swift; sourceTree = "<group>"; };
+		EC212818244FB46D00342DD1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		EC69037B244E8C1A008316E5 /* LinnstrumentHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinnstrumentHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC69037E244E8C1A008316E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC690380244E8C1A008316E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,7 +77,9 @@
 			children = (
 				EC690380244E8C1A008316E5 /* ContentView.swift */,
 				EC212810244F8FC500342DD1 /* PlayingSurfaceView.swift */,
-				EC212812244F9D0400342DD1 /* SmallSurfaceView.swift */,
+				EC212814244FB38F00342DD1 /* Item.swift */,
+				EC212816244FB41F00342DD1 /* SmallSurfaceView.swift */,
+				EC212818244FB46D00342DD1 /* Card.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,7 +242,9 @@
 				EC690381244E8C1A008316E5 /* ContentView.swift in Sources */,
 				EC69037F244E8C1A008316E5 /* AppDelegate.swift in Sources */,
 				EC212811244F8FC500342DD1 /* PlayingSurfaceView.swift in Sources */,
-				EC212813244F9D0400342DD1 /* SmallSurfaceView.swift in Sources */,
+				EC212815244FB38F00342DD1 /* Item.swift in Sources */,
+				EC212817244FB41F00342DD1 /* SmallSurfaceView.swift in Sources */,
+				EC212819244FB46D00342DD1 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

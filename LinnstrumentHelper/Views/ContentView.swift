@@ -31,9 +31,10 @@ struct ContentView: View {
             }
         }
             Spacer()
-            Text("Notes played")
-            Text("\(self.conductor.noteNumber)")
-        }
+            Text("Note: \(self.conductor.noteName)")
+                .font(.title)
+            Spacer()
+        }.padding()
     }
 }
 
