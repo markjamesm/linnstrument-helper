@@ -13,13 +13,18 @@ import Combine
 class Conductor: AKMIDIListener, ObservableObject {
     
     @Published var noteNumber: UInt8 = 0
+    @Published var lastNote: UInt8 = 0
     @Published var noteName: String = " "
-    @Published var notesHeld: Set<UInt8> = []
+    @Published var notesHeld: Array<UInt8> = []
     @Published var isNotePressed: Bool
     
     static let sharedInstance = Conductor()
     
     let midi = AudioKit.midi
+    
+    let synth = AKSynth(masterVolume: 0.5, pitchBend: 0.0, vibratoDepth: 0.0, filterCutoff: 2.0, filterStrength: 0.5, filterResonance: 0.0, attackDuration: 0.1, decayDuration: 0.0, sustainLevel: 1.0, releaseDuration: 0.2, filterEnable: true)
+    
+    var mixer = AKMixer()
     
     init() {
         
@@ -28,7 +33,9 @@ class Conductor: AKMIDIListener, ObservableObject {
         midi.openInput(name: "Session 1")
         midi.addListener(self)
         
-        print("MIDI ready")
+        mixer = AKMixer(synth)
+        AudioKit.output = mixer
+           try! AudioKit.start()
     
     }
     
@@ -38,22 +45,19 @@ class Conductor: AKMIDIListener, ObservableObject {
         portID: MIDIUniqueID?,
         offset: MIDITimeStamp) {
 
-        print("Playing MIDI note number: \(noteNumber)")
+    //    print("Playing MIDI note number: \(noteNumber)")
         
         DispatchQueue.main.async {
             self.noteNumber = noteNumber
-            self.notesHeld.insert(noteNumber)
-            print(self.notesHeld)
+            self.lastNote = noteNumber
+            self.notesHeld.insert(noteNumber, at: self.notesHeld.endIndex)
+          //  print(self.notesHeld)
             self.isNotePressed = true
             self.noteName = self.midiToNote(noteNumber: self.noteNumber)
-        }
-        
-    //    synthEngine.playNote(noteNumber: noteNumber, velocity: velocity)
-     //   noteCount += 1
-        //print("Notecount: \(noteCount)")
-    //    MIDIEngine.midiToNote(noteNumber: noteNumber)
+            self.playNote(noteNumber: noteNumber, velocity: velocity)
 
         }
+    }
 
     func receivedMIDINoteOff(noteNumber: MIDINoteNumber,
         velocity: MIDIVelocity,
@@ -63,12 +67,12 @@ class Conductor: AKMIDIListener, ObservableObject {
         
         DispatchQueue.main.async {
             self.noteNumber = 0
-            self.notesHeld.remove(noteNumber)
+      //      self.notesHeld.removeLast()
             print(self.notesHeld)
             self.isNotePressed = false
             self.noteName = " "
+            self.stopNote(noteNumber: noteNumber)
         }
-
         // print("Stop") - Use for debugging purposes.
    //     synthEngine.stopNote(noteNumber: noteNumber)
     }
@@ -80,6 +84,14 @@ class Conductor: AKMIDIListener, ObservableObject {
 
         return noteNames[noteNumber]!
     }
+    
+    func playNote(noteNumber: UInt8, velocity: UInt8) {
+         synth.play(noteNumber: noteNumber, velocity: velocity)
+       }
+
+       func stopNote(noteNumber: UInt8) {
+         synth.stop(noteNumber: noteNumber)
+       }
     
 }
 

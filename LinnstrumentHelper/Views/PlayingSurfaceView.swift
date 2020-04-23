@@ -24,14 +24,15 @@ struct PlayingSurfaceView: View {
             }
             ScrollView(style.axes) {
                 Grid(items) { item in
-                    Card(title: "\(item.noteNames[item.number])", color: item.color)
+                    Card(title: "\(item.noteNames[item.number])", color: item.color, midiNoteNumber: UInt8(item.number))
                         .onTapGesture {
-                            self.selection = item.number
+                         //   self.selection = item.midiNoteNumber
+                     //       print(item.number)
                        //     print(items.)
                         }
                 }
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: 12)
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.white)
                         .frame(
@@ -42,7 +43,7 @@ struct PlayingSurfaceView: View {
                             x: preferences[self.selection].midX,
                             y: preferences[self.selection].midY
                         )
-                        .animation(.linear)
+                      //  .animation(.linear)
                 }
                 .padding(16)
             }

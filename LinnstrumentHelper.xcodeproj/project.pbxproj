@@ -77,8 +77,8 @@
 			children = (
 				EC690380244E8C1A008316E5 /* ContentView.swift */,
 				EC212810244F8FC500342DD1 /* PlayingSurfaceView.swift */,
-				EC212814244FB38F00342DD1 /* Item.swift */,
 				EC212816244FB41F00342DD1 /* SmallSurfaceView.swift */,
+				EC212814244FB38F00342DD1 /* Item.swift */,
 				EC212818244FB46D00342DD1 /* Card.swift */,
 			);
 			path = Views;

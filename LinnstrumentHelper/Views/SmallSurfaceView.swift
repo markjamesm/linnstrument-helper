@@ -17,16 +17,20 @@ struct SmallSurfaceView: View {
             }
             ScrollView(style.axes) {
                 Grid(items) { item in
-                    Card(title: "\(item.shortNoteNames[item.number])", color: item.color)
-                        .onTapGesture {
-                            self.selection = item.number
-                            print(self.selection)
-                        }
+                    Card(title: "\(item.shortNoteNames[item.number])", color: item.color, midiNoteNumber: UInt8(item.midiNoteNumber[item.number]))
+                        
+                        .onReceive(self.conductor.$noteNumber, perform: { note in
+                          //  self.selection = Int(item.midiNoteNumber[item.number])
+                           // print("Var: \(self.selection)")
+                            print([item.midiNoteNumber])
+                         //   print(item.number)
+                         //   print(item.midiNoteNumber[item.number])
+                        })
                 }
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
                     RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(lineWidth: 4)
-                        .foregroundColor(.white)
+                        .foregroundColor(.blue)
                         .frame(
                             width: preferences[self.selection].width,
                             height: preferences[self.selection].height
@@ -35,7 +39,7 @@ struct SmallSurfaceView: View {
                             x: preferences[self.selection].midX,
                             y: preferences[self.selection].midY
                         )
-                        .animation(.linear)
+                    //    .animation(.default)
                 }
                 .padding(16)
             }
@@ -52,6 +56,6 @@ struct SmallSurfaceView: View {
 
 struct SmallSurfaceView_Previews: PreviewProvider {
     static var previews: some View {
-        SmallSurfaceView()
+        SmallSurfaceView().environmentObject(Conductor())
     }
 }
