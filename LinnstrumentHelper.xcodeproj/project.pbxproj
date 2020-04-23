@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06B2F9193BCCF05294BB0F5A /* Pods_LinnstrumentHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08B3ECE281F47A03ED03486 /* Pods_LinnstrumentHelper.framework */; };
 		EC2127FF244E8CBF00342DD1 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2127FE244E8CBF00342DD1 /* Conductor.swift */; };
 		EC212806244EB70000342DD1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EC212805244EB70000342DD1 /* .gitignore */; };
 		EC21280B244F885200342DD1 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = EC21280A244F885200342DD1 /* Grid */; };
@@ -48,7 +47,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC21280B244F885200342DD1 /* Grid in Frameworks */,
-				06B2F9193BCCF05294BB0F5A /* Pods_LinnstrumentHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
