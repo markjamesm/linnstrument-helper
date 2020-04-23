@@ -9,4 +9,4 @@ an an early alpha stage.
 
 ## Screenshots
 
-<img src="https://user-images.githubusercontent.com/20845425/80049519-1864f900-84e1-11ea-971d-3098639acb96.png" width="300"/> 
+![](https://user-images.githubusercontent.com/20845425/80049519-1864f900-84e1-11ea-971d-3098639acb96.png | width=100)
