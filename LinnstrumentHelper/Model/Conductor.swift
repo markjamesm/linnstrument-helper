@@ -49,10 +49,11 @@ class Conductor: AKMIDIListener, ObservableObject {
         
         DispatchQueue.main.async {
             self.noteNumber = noteNumber
-            self.lastNote = noteNumber
-            self.notesHeld.insert(noteNumber, at: self.notesHeld.endIndex)
+            print(noteNumber)
+        //    self.lastNote = noteNumber
+       //     self.notesHeld.insert(noteNumber, at: self.notesHeld.endIndex)
           //  print(self.notesHeld)
-            self.isNotePressed = true
+        //    self.isNotePressed = true
             self.noteName = self.midiToNote(noteNumber: self.noteNumber)
             self.playNote(noteNumber: noteNumber, velocity: velocity)
 

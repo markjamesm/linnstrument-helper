@@ -19,12 +19,24 @@ struct SmallSurfaceView: View {
                 Grid(items) { item in
                     Card(title: "\(item.shortNoteNames[item.number])", color: item.color, midiNoteNumber: UInt8(item.midiNoteNumber[item.number]))
                         
-                        .onReceive(self.conductor.$noteNumber, perform: { note in
-                          //  self.selection = Int(item.midiNoteNumber[item.number])
-                           // print("Var: \(self.selection)")
-                            print([item.midiNoteNumber])
-                         //   print(item.number)
+                        .onTapGesture {
+                            self.selection = item.midiNoteNumber[item.number]
+                            print(self.selection)
+                        //   print(item.number)
+                          //  print(item.shortNoteNames[item.number])
                          //   print(item.midiNoteNumber[item.number])
+                          //     print(items.)
+                           }
+                        
+                        .onReceive(self.conductor.$noteNumber, perform: { note in
+                            
+                          //  print(self.selection)
+                          //  self.selection = Int(note)
+                         //   print(item.midiNoteNumber[note])
+                         //   print("Var: \(self.selection)")
+                        //    print([item.midiNoteNumber])
+                         //   print(item.number)
+                            print(item.midiNoteNumber[item.number])
                         })
                 }
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
