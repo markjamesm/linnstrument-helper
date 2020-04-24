@@ -52,9 +52,9 @@ struct SmallSurfaceView: View {
             }
 
         }
-     //   .sheet(isPresented: self.$showSettings) {
-      //      ModularGridSettingsView(style: self.$style)
-    //    }
+        .sheet(isPresented: self.$showSettings) {
+            ModularGridSettingsView(style: self.$style)
+        }
         .gridStyle(
             self.style
         )
