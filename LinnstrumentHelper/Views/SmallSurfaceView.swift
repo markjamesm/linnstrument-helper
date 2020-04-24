@@ -48,7 +48,7 @@ struct SmallSurfaceView: View {
                         )
                     //    .animation(.default)
                 }
-                .padding(16)
+                .padding()
             }
 
         }

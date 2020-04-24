@@ -30,10 +30,20 @@ struct ContentView: View {
                 Text("Linnstrument 128")
             }
         }
-            Spacer()
-            Text("Note: \(self.conductor.noteName)")
-                .font(.title)
-            Spacer()
+           // Spacer()
+            HStack {
+                Spacer()
+                Text("Note: \(self.conductor.noteName)")
+                    .font(.title)
+                Spacer()
+                Text("Velocity: \(self.conductor.velocity)")
+                    .font(.title)
+                Spacer()
+                Text("MIDI Channel: \(self.conductor.channel)")
+                    .font(.caption)
+            }
+                Spacer()
+            
         }.padding()
     }
 }

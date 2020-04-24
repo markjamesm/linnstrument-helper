@@ -50,7 +50,7 @@ struct PlayingSurfaceView: View {
                         )
                       //  .animation(.linear)
                 }
-                .padding(16)
+                .padding()
             }
 
         }

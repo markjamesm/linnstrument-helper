@@ -15,9 +15,11 @@ class Conductor: AKMIDIListener, ObservableObject {
     @Published var noteNumber: UInt8 = 0
     @Published var lastNote: UInt8 = 0
     @Published var noteName: String = " "
-    @Published var notesHeld: Array<UInt8> = []
+    @Published var notesHeld: Array<UInt8> = [0]
     @Published var isNotePressed: Bool
     @Published var count: [Int] = []
+    @Published var velocity: UInt8 = 0
+    @Published var channel: UInt8 = 0
     
     static let sharedInstance = Conductor()
     
@@ -57,6 +59,8 @@ class Conductor: AKMIDIListener, ObservableObject {
         //    self.isNotePressed = true
             self.noteName = self.midiToNote(noteNumber: self.noteNumber)
             self.playNote(noteNumber: noteNumber, velocity: velocity)
+            self.velocity = velocity
+            self.channel = channel + 1
 
         }
     }
@@ -74,6 +78,7 @@ class Conductor: AKMIDIListener, ObservableObject {
             self.isNotePressed = false
             self.noteName = " "
             self.stopNote(noteNumber: noteNumber)
+           // self.velocity = 0
         }
         // print("Stop") - Use for debugging purposes.
    //     synthEngine.stopNote(noteNumber: noteNumber)
