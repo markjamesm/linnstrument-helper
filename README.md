@@ -4,12 +4,12 @@
  [![License](https://img.shields.io/badge/License-GPL-red.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 Linnstrument Helper is a SwiftUI app for Mac OS to help make learning the Linnstrument layout a breeze. Currently in 
-an an early alpha stage, Linnstrument helper makes use of the [AudioKit](https://github.com/AudioKit/AudioKit) and [SwiftUI Grid](https://github.com/spacenation/swiftui-grid) frameworks.
+an early alpha stage, Linnstrument helper makes use of the [AudioKit](https://github.com/AudioKit/AudioKit) and [SwiftUI Grid](https://github.com/spacenation/swiftui-grid) frameworks.
 
 ## Features
 
 - Basic synth engine
-- Displays current note played
+- Displays current note played (WIP)
 
 ## Planned Features
 
