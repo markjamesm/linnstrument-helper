@@ -9,7 +9,7 @@ an early alpha stage, Linnstrument helper makes use of the [AudioKit](https://gi
 ## Features
 
 - Basic synth engine
-- Displays current note played (WIP)
+- Displays current note played along with velocity 
 
 ## Planned Features
 
@@ -19,4 +19,4 @@ an early alpha stage, Linnstrument helper makes use of the [AudioKit](https://gi
 
 ## Screenshots
 
-<img src="https://user-images.githubusercontent.com/20845425/80049519-1864f900-84e1-11ea-971d-3098639acb96.png"/>
+<img src="https://user-images.githubusercontent.com/20845425/80164594-680df800-85a7-11ea-81e4-b70c22a2eb38.png"/>
