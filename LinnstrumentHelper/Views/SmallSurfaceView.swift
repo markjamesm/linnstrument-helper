@@ -6,6 +6,7 @@ struct SmallSurfaceView: View {
     @EnvironmentObject var conductor: Conductor
     
     @State var selection: Int = 0
+    @State var selection1: Int = 0
     @State var items: [Item] = (0 ... 127).map { Item(number: $0) }
     @State var showSettings: Bool = false
     @State var style = ModularGridStyle(columns: 16, rows: .fixed(70))
@@ -17,29 +18,23 @@ struct SmallSurfaceView: View {
             }
             ScrollView(style.axes) {
                 Grid(items) { item in
-                    Card(title: "\(item.shortNoteNames[item.number])", color: item.color, midiNoteNumber: UInt8(item.midiNoteNumber[item.number]))
+                    Card(title: "\(item.shortNoteNames[item.number])", color: item.color, gridNumber: item.number)
                         
                         .onTapGesture {
-                            self.selection = item.midiNoteNumber[item.number]
-                            print(self.selection)
-                        //   print(item.number)
-                          //  print(item.shortNoteNames[item.number])
-                         //   print(item.midiNoteNumber[item.number])
-                          //     print(items.)
+                            
+                            self.selection = item.number
+                            print(item.number)
+
                            }
                         
                         .onReceive(self.conductor.$noteNumber, perform: { note in
                             
-                          //  print(self.selection)
-                          //  self.selection = Int(note)
-                         //   print(item.midiNoteNumber[note])
-                         //   print("Var: \(self.selection)")
-                        //    print([item.midiNoteNumber])
-                         //   print(item.number)
-                            print(item.midiNoteNumber[item.number])
+                            self.selection = Int(note)
                         })
                 }
+
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                    
                     RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.blue)
