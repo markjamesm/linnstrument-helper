@@ -1,5 +1,5 @@
 //
-//  PlayingSurfaceView.swift
+//  PlayingSurfaceView.swift - Linnstrument 200 configuration
 //  LinnstrumentHelper
 //
 //  Created by Mark-James McDougall on 2020-04-21.
@@ -24,7 +24,7 @@ struct PlayingSurfaceView: View {
             }
             ScrollView(style.axes) {
                 Grid(items) { item in
-                    Card(title: "\(item.noteNames[item.number])", color: item.color, gridNumber: Int(UInt8(item.number)))
+                    Card(title: "\(item.noteNames[item.number])", color: item.color, midiNumber: item.MIDINoteNumber[item.number])
                     
                         .onTapGesture {
                          //   self.selection = item.midiNoteNumber

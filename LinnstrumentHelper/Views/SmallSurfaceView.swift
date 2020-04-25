@@ -1,3 +1,11 @@
+//
+//  PlayingSurfaceView.swift - Linnstrument 128 configuration
+//  LinnstrumentHelper
+//
+//  Created by Mark-James McDougall on 2020-04-21.
+//  Copyright © 2020 Mark-James M. All rights reserved.
+//
+
 import SwiftUI
 import Grid
 
@@ -19,18 +27,19 @@ struct SmallSurfaceView: View {
             }
             ScrollView(style.axes) {
                 Grid(items) { item in
-                    Card(title: "\(item.shortNoteNames[item.number])", color: item.color, gridNumber: item.number)
+                    Card(title: "\(item.shortNoteNames[item.number])", color: item.color, midiNumber: item.shortMIDINoteNumber[item.number])
                         
                         .onTapGesture {
                             
                             self.conductor.note1 = UInt8(item.number)
-                            print(item.number)
+                            print(item.shortMIDINoteNumber[item.number])
 
                            }
                         
-                        .onReceive(self.conductor.$lastNote, perform: { note in
+                      //  .onReceive(self.conductor.$lastNote, perform: { note in
 
-                        })
+                     //   })
+                
                 }
 
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
