@@ -28,10 +28,7 @@ struct PlayingSurfaceView: View {
                     
                         .onTapGesture {
                          //   self.selection = item.midiNoteNumber
-                     //       print(item.number)
-                            var arr: [Int] = []
-                            arr.append(item.number)
-                            print(arr)
+                            print(item)
                             
                        //     print(items.)
                         }

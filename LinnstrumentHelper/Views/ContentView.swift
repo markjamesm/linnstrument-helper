@@ -40,7 +40,7 @@ struct ContentView: View {
                     .font(.title)
                 Spacer()
                 Text("MIDI Channel: \(self.conductor.channel)")
-                    .font(.caption)
+                    .font(.body)
             }
                 Spacer()
             

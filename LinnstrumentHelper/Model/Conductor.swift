@@ -13,6 +13,9 @@ import Combine
 class Conductor: AKMIDIListener, ObservableObject {
     
     @Published var noteNumber: UInt8 = 0
+    @Published var note1: UInt8 = 0
+    @Published var note2: UInt8 = 0
+    @Published var note3: UInt8 = 0
     @Published var lastNote: UInt8 = 0
     @Published var noteName: String = " "
     @Published var notesHeld: Array<UInt8> = [0]
@@ -20,6 +23,7 @@ class Conductor: AKMIDIListener, ObservableObject {
     @Published var count: [Int] = []
     @Published var velocity: UInt8 = 0
     @Published var channel: UInt8 = 0
+    
     
     static let sharedInstance = Conductor()
     
@@ -61,7 +65,14 @@ class Conductor: AKMIDIListener, ObservableObject {
             self.playNote(noteNumber: noteNumber, velocity: velocity)
             self.velocity = velocity
             self.channel = channel + 1
-
+            
+            self.note1 = self.notesHeld.dropFirst(1).first ?? 0
+            self.note2 = self.notesHeld.dropFirst(2).first ?? 0
+            self.note3 = self.notesHeld.dropFirst(3).first ?? 0
+            
+            print(self.note1, self.note2, self.note3)
+            
+            
         }
     }
 
@@ -79,6 +90,9 @@ class Conductor: AKMIDIListener, ObservableObject {
             self.noteName = " "
             self.stopNote(noteNumber: noteNumber)
            // self.velocity = 0
+            self.note1 = 0
+            self.note2 = 0
+            self.note3 = 0
         }
         // print("Stop") - Use for debugging purposes.
    //     synthEngine.stopNote(noteNumber: noteNumber)

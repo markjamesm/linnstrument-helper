@@ -6,10 +6,11 @@ struct SmallSurfaceView: View {
     @EnvironmentObject var conductor: Conductor
     
     @State var selection: Int = 0
-    @State var selection1: Int = 0
+    @State var selection1: Int = 80
     @State var items: [Item] = (0 ... 127).map { Item(number: $0) }
     @State var showSettings: Bool = false
     @State var style = ModularGridStyle(columns: 16, rows: .fixed(70))
+    
     
     var body: some View {
         VStack(alignment: .trailing) {
@@ -22,14 +23,13 @@ struct SmallSurfaceView: View {
                         
                         .onTapGesture {
                             
-                            self.selection = item.number
+                            self.conductor.note1 = UInt8(item.number)
                             print(item.number)
 
                            }
                         
-                        .onReceive(self.conductor.$noteNumber, perform: { note in
-                            
-                            self.selection = Int(note)
+                        .onReceive(self.conductor.$lastNote, perform: { note in
+
                         })
                 }
 
@@ -39,15 +39,46 @@ struct SmallSurfaceView: View {
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.blue)
                         .frame(
-                            width: preferences[self.selection].width,
-                            height: preferences[self.selection].height
+                            width: preferences[Int(self.conductor.note1)].width,
+                            height: preferences[Int(self.conductor.note1)].height
                         )
                         .position(
-                            x: preferences[self.selection].midX,
-                            y: preferences[self.selection].midY
+                            x: preferences[Int(self.conductor.note1)].midX,
+                            y: preferences[Int(self.conductor.note1)].midY
                         )
                     //    .animation(.default)
                 }
+                
+                .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                    
+                    RoundedRectangle(cornerRadius: 16)
+                        .strokeBorder(lineWidth: 4)
+                        .foregroundColor(.purple)
+                        .frame(
+                            width: preferences[Int(self.conductor.note2)].width,
+                            height: preferences[Int(self.conductor.note2)].height
+                        )
+                        .position(
+                            x: preferences[Int(self.conductor.note2)].midX,
+                            y: preferences[Int(self.conductor.note2)].midY
+                        )
+                }
+
+                .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                    
+                    RoundedRectangle(cornerRadius: 16)
+                        .strokeBorder(lineWidth: 4)
+                        .foregroundColor(.orange)
+                        .frame(
+                            width: preferences[Int(self.conductor.note3)].width,
+                            height: preferences[Int(self.conductor.note3)].height
+                        )
+                        .position(
+                            x: preferences[Int(self.conductor.note3)].midX,
+                            y: preferences[Int(self.conductor.note3)].midY
+                        )
+                }
+                    
                 .padding()
             }
 
