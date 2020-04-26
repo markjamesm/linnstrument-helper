@@ -16,11 +16,12 @@ class Conductor: AKMIDIListener, ObservableObject {
     @Published var note1: UInt8 = 0
     @Published var note2: UInt8 = 0
     @Published var note3: UInt8 = 0
+    @Published var note4: UInt8 = 0
     @Published var lastNote: UInt8 = 0
     @Published var noteName: String = " "
     @Published var notesHeld: Array<UInt8> = [0]
     @Published var isNotePressed: Bool
-    @Published var count: [Int] = []
+   // @Published var count: [Int] = []
     @Published var velocity: UInt8 = 0
     @Published var channel: UInt8 = 0
     
@@ -55,17 +56,18 @@ class Conductor: AKMIDIListener, ObservableObject {
             self.noteNumber = noteNumber
             print(noteNumber)
         //    self.lastNote = noteNumber
-            self.notesHeld.insert(noteNumber, at: self.notesHeld.endIndex)
+            self.notesHeld.insert(UInt8(self.midiToSmallGrid(noteNumber: noteNumber)), at: self.notesHeld.endIndex)
           //  print(self.notesHeld)
         //    self.isNotePressed = true
             self.noteName = self.midiToNote(noteNumber: self.noteNumber)
             self.playNote(noteNumber: noteNumber, velocity: velocity)
             self.velocity = velocity
             self.channel = channel + 1
-            
+          //  self.noteGrid = self.midiToSmallGrid(noteNumber: noteNumber)
             self.note1 = self.notesHeld.dropFirst(1).first ?? 0
             self.note2 = self.notesHeld.dropFirst(2).first ?? 0
             self.note3 = self.notesHeld.dropFirst(3).first ?? 0
+            self.note4 = self.notesHeld.dropFirst(4).first ?? 0
             
             print(self.note1, self.note2, self.note3)
         }
@@ -87,6 +89,7 @@ class Conductor: AKMIDIListener, ObservableObject {
             self.note1 = 0
             self.note2 = 0
             self.note3 = 0
+            self.note4 = 0
         }
     }
 
@@ -96,6 +99,12 @@ class Conductor: AKMIDIListener, ObservableObject {
 
         return noteNames[noteNumber]!
     }
+    
+    func midiToSmallGrid(noteNumber: UInt8) -> Int {
+        let smallGrid: [UInt8: UInt8] = [ 30: 112, 31: 113, 32: 114, 33: 115, 34: 116, 35: 117, 36: 118, 37: 119, 38: 120, 39: 121, 40: 122, 41: 123, 42: 124, 43: 125, 44: 126, 45: 127, 46: 86, 47: 87, 48: 88, 49: 89, 50: 90, 51: 91, 52: 92, 53: 93, 54: 94, 55: 95, 56: 75, 57: 76, 58: 77, 59: 78, 60: 79, 61: 59, 62: 60, 63: 61, 64: 62, 65: 63, 66: 43, 67: 44, 68: 45, 69: 46, 70: 47, 71: 27, 72: 28, 73: 29, 74: 30, 75: 31, 76: 11, 77: 12, 78: 13, 79: 14, 80: 15 ]
+     
+        return Int(smallGrid[noteNumber]!)
+   }
     
     // Synth Engine Methods
     func playNote(noteNumber: UInt8, velocity: UInt8) {

@@ -27,12 +27,13 @@ struct SmallSurfaceView: View {
             }
             ScrollView(style.axes) {
                 Grid(items) { item in
-                    Card(title: "\(item.shortNoteNames[item.number])", color: item.color, midiNumber: item.shortMIDINoteNumber[item.number])
+                    Card(title: "\(item.shortNoteNames[item.number])", color: item.color)
                         
                         .onTapGesture {
                             
                             self.conductor.note1 = UInt8(item.number)
-                            print(item.shortMIDINoteNumber[item.number])
+                       //     print(item.shortMIDINoteNumber[item.number])
+                            print(item.number)
 
                            }
                         
@@ -85,6 +86,21 @@ struct SmallSurfaceView: View {
                         .position(
                             x: preferences[Int(self.conductor.note3)].midX,
                             y: preferences[Int(self.conductor.note3)].midY
+                        )
+                }
+                    
+                .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                    
+                    RoundedRectangle(cornerRadius: 16)
+                        .strokeBorder(lineWidth: 4)
+                        .foregroundColor(.red)
+                        .frame(
+                            width: preferences[Int(self.conductor.note4)].width,
+                            height: preferences[Int(self.conductor.note4)].height
+                        )
+                        .position(
+                            x: preferences[Int(self.conductor.note4)].midX,
+                            y: preferences[Int(self.conductor.note4)].midY
                         )
                 }
                     

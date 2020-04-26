@@ -11,7 +11,7 @@ import SwiftUI
 struct Card: View {
     let title: String
     let color: Color
-    let midiNumber: Int
+  //  let midiNumber: Int
     
     var body: some View {
         ZStack(alignment: .init(horizontal: .center, vertical: .center)) {
@@ -33,7 +33,7 @@ struct Card: View {
 #if DEBUG
 struct Card_Previews: PreviewProvider {
     static var previews: some View {
-        Card(title: "1", color: .gray, midiNumber: 20)
+        Card(title: "1", color: .gray)
     }
 }
 #endif

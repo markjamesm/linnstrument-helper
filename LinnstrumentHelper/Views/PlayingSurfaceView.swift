@@ -24,7 +24,7 @@ struct PlayingSurfaceView: View {
             }
             ScrollView(style.axes) {
                 Grid(items) { item in
-                    Card(title: "\(item.noteNames[item.number])", color: item.color, midiNumber: item.MIDINoteNumber[item.number])
+                    Card(title: "\(item.noteNames[item.number])", color: item.color)
                     
                         .onTapGesture {
                          //   self.selection = item.midiNoteNumber
