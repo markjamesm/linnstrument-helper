@@ -17,11 +17,19 @@ class Conductor: AKMIDIListener, ObservableObject {
     @Published var note2: UInt8 = 0
     @Published var note3: UInt8 = 0
     @Published var note4: UInt8 = 0
+    @Published var note5: UInt8 = 0
     @Published var lastNote: UInt8 = 0
-    @Published var noteName: String = " "
+    @Published var noteOneName: String = " "
+    @Published var noteTwoName: String = " "
+    @Published var noteThreeName: String = " "
+    @Published var noteFourName: String = " "
+    @Published var noteFiveName: String = " "
     @Published var notesHeld: Array<UInt8> = [0]
-    @Published var isNotePressed: Bool
-   // @Published var count: [Int] = []
+    @Published var noteOnePressed: Bool
+    @Published var noteTwoPressed: Bool
+    @Published var noteThreePressed: Bool
+    @Published var noteFourPressed: Bool
+    @Published var noteFivePressed: Bool
     @Published var velocity: UInt8 = 0
     @Published var channel: UInt8 = 0
     
@@ -36,7 +44,11 @@ class Conductor: AKMIDIListener, ObservableObject {
     
     init() {
         
-        self.isNotePressed = false
+        self.noteOnePressed = false
+        self.noteTwoPressed = false
+        self.noteThreePressed = false
+        self.noteFourPressed = false
+        self.noteFivePressed = false
         
         midi.openInput(name: "Session 1")
         midi.addListener(self)
@@ -53,14 +65,15 @@ class Conductor: AKMIDIListener, ObservableObject {
         offset: MIDITimeStamp) {
         
         DispatchQueue.main.async {
-            self.noteNumber = noteNumber
-            print(noteNumber)
+          //  self.noteNumber = noteNumber
+         //   print(noteNumber)
         //    self.lastNote = noteNumber
             self.notesHeld.insert(UInt8(self.midiToSmallGrid(noteNumber: noteNumber)), at: self.notesHeld.endIndex)
           //  print(self.notesHeld)
         //    self.isNotePressed = true
-            self.noteName = self.midiToNote(noteNumber: self.noteNumber)
+            
             self.playNote(noteNumber: noteNumber, velocity: velocity)
+            
             self.velocity = velocity
             self.channel = channel + 1
           //  self.noteGrid = self.midiToSmallGrid(noteNumber: noteNumber)
@@ -68,8 +81,21 @@ class Conductor: AKMIDIListener, ObservableObject {
             self.note2 = self.notesHeld.dropFirst(2).first ?? 0
             self.note3 = self.notesHeld.dropFirst(3).first ?? 0
             self.note4 = self.notesHeld.dropFirst(4).first ?? 0
+            self.note5 = self.notesHeld.dropFirst(5).first ?? 0
             
-            print(self.note1, self.note2, self.note3)
+            self.noteOnePressed = true
+            self.noteTwoPressed = true
+            self.noteThreePressed = true
+            self.noteFourPressed = true
+            self.noteFivePressed = true
+            
+            self.noteOneName = self.midiToNote(noteNumber: self.note1)
+            self.noteTwoName = self.midiToNote(noteNumber: self.note2)
+            self.noteThreeName = self.midiToNote(noteNumber: self.note3)
+            self.noteFourName = self.midiToNote(noteNumber: self.note4)
+            self.noteFiveName = self.midiToNote(noteNumber: self.note5)
+            
+           // print(self.note1, self.note2, self.note3)
         }
     }
 
@@ -82,14 +108,20 @@ class Conductor: AKMIDIListener, ObservableObject {
         DispatchQueue.main.async {
             self.noteNumber = 0
             self.notesHeld.removeLast()
-            self.isNotePressed = false
-            self.noteName = " "
+            self.noteOnePressed = false
+            self.noteOneName = " "
             self.stopNote(noteNumber: noteNumber)
            // self.velocity = 0
             self.note1 = 0
             self.note2 = 0
             self.note3 = 0
             self.note4 = 0
+            
+            self.noteOnePressed = false
+            self.noteTwoPressed = false
+            self.noteThreePressed = false
+            self.noteFourPressed = false
+            self.noteFivePressed = false
         }
     }
 
@@ -100,13 +132,26 @@ class Conductor: AKMIDIListener, ObservableObject {
         return noteNames[noteNumber]!
     }
     
+    
+    // LS 200
+    
+    func midiToGrid(noteNumber: UInt8) -> Int {
+    let grid: [UInt8: UInt8] = [ 30: 112, 31: 113, 32: 114, 33: 115, 34: 116, 35: 117, 36: 118, 37: 119, 38: 120, 39: 121, 40: 122, 41: 123, 42: 124, 43: 125, 44: 126, 45: 127, 46: 86, 47: 87, 48: 88, 49: 89, 50: 90, 51: 91, 52: 92, 53: 93, 54: 94, 55: 95, 56: 75, 57: 76, 58: 77, 59: 78, 60: 79, 61: 59, 62: 60, 63: 61, 64: 62, 65: 63, 66: 43, 67: 44, 68: 45, 69: 46, 70: 47, 71: 27, 72: 28, 73: 29, 74: 30, 75: 31, 76: 11, 77: 12, 78: 13, 79: 14, 80: 15, 190: 190 ]
+    
+        return Int(grid[noteNumber]!)
+    }
+        
+   // LS 128
+        
     func midiToSmallGrid(noteNumber: UInt8) -> Int {
-        let smallGrid: [UInt8: UInt8] = [ 30: 112, 31: 113, 32: 114, 33: 115, 34: 116, 35: 117, 36: 118, 37: 119, 38: 120, 39: 121, 40: 122, 41: 123, 42: 124, 43: 125, 44: 126, 45: 127, 46: 86, 47: 87, 48: 88, 49: 89, 50: 90, 51: 91, 52: 92, 53: 93, 54: 94, 55: 95, 56: 75, 57: 76, 58: 77, 59: 78, 60: 79, 61: 59, 62: 60, 63: 61, 64: 62, 65: 63, 66: 43, 67: 44, 68: 45, 69: 46, 70: 47, 71: 27, 72: 28, 73: 29, 74: 30, 75: 31, 76: 11, 77: 12, 78: 13, 79: 14, 80: 15 ]
+        let smallGrid: [UInt8: UInt8] = [ 30: 112, 31: 113, 32: 114, 33: 115, 34: 116, 35: 117, 36: 118, 37: 119, 38: 120, 39: 121, 40: 122, 41: 123, 42: 124, 43: 125, 44: 126, 45: 127, 46: 86, 47: 87, 48: 88, 49: 89, 50: 90, 51: 91, 52: 92, 53: 93, 54: 94, 55: 95, 56: 75, 57: 76, 58: 77, 59: 78, 60: 79, 61: 59, 62: 60, 63: 61, 64: 62, 65: 63, 66: 43, 67: 44, 68: 45, 69: 46, 70: 47, 71: 27, 72: 28, 73: 29, 74: 30, 75: 31, 76: 11, 77: 12, 78: 13, 79: 14, 80: 15, 190: 190 ]
      
         return Int(smallGrid[noteNumber]!)
    }
     
+        
     // Synth Engine Methods
+        
     func playNote(noteNumber: UInt8, velocity: UInt8) {
          synth.play(noteNumber: noteNumber, velocity: velocity)
        }

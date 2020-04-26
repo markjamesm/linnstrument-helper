@@ -11,7 +11,6 @@ import SwiftUI
 struct Card: View {
     let title: String
     let color: Color
-  //  let midiNumber: Int
     
     var body: some View {
         ZStack(alignment: .init(horizontal: .center, vertical: .center)) {

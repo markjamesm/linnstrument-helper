@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC20865224527CBC00672985 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20865124527CBC00672985 /* SettingsView.swift */; };
+		EC208656245533F600672985 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC208655245533F600672985 /* NotesView.swift */; };
 		EC2127FF244E8CBF00342DD1 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2127FE244E8CBF00342DD1 /* Conductor.swift */; };
 		EC212806244EB70000342DD1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EC212805244EB70000342DD1 /* .gitignore */; };
 		EC21280B244F885200342DD1 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = EC21280A244F885200342DD1 /* Grid */; };
@@ -26,6 +27,7 @@
 		D08B3ECE281F47A03ED03486 /* Pods_LinnstrumentHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LinnstrumentHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D872DCFA16AF2E1A77F4B8 /* Pods-LinnstrumentHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinnstrumentHelper.debug.xcconfig"; path = "Target Support Files/Pods-LinnstrumentHelper/Pods-LinnstrumentHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		EC20865124527CBC00672985 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EC208655245533F600672985 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		EC2127FE244E8CBF00342DD1 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
 		EC212805244EB70000342DD1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EC212810244F8FC500342DD1 /* PlayingSurfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingSurfaceView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				EC690380244E8C1A008316E5 /* ContentView.swift */,
+				EC208655245533F600672985 /* NotesView.swift */,
 				EC212810244F8FC500342DD1 /* PlayingSurfaceView.swift */,
 				EC212816244FB41F00342DD1 /* SmallSurfaceView.swift */,
 				EC212814244FB38F00342DD1 /* Item.swift */,
@@ -247,6 +250,7 @@
 				EC212815244FB38F00342DD1 /* Item.swift in Sources */,
 				EC212817244FB41F00342DD1 /* SmallSurfaceView.swift in Sources */,
 				EC212819244FB46D00342DD1 /* Card.swift in Sources */,
+				EC208656245533F600672985 /* NotesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,16 +32,11 @@ struct SmallSurfaceView: View {
                         .onTapGesture {
                             
                             self.conductor.note1 = UInt8(item.number)
-                       //     print(item.shortMIDINoteNumber[item.number])
                             print(item.number)
 
                            }
-                        
-                      //  .onReceive(self.conductor.$lastNote, perform: { note in
-
-                     //   })
-                
                 }
+                    
 
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
                     
@@ -56,7 +51,6 @@ struct SmallSurfaceView: View {
                             x: preferences[Int(self.conductor.note1)].midX,
                             y: preferences[Int(self.conductor.note1)].midY
                         )
-                    //    .animation(.default)
                 }
                 
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
@@ -103,10 +97,8 @@ struct SmallSurfaceView: View {
                             y: preferences[Int(self.conductor.note4)].midY
                         )
                 }
-                    
                 .padding()
             }
-
         }
         .sheet(isPresented: self.$showSettings) {
             ModularGridSettingsView(style: self.$style)
