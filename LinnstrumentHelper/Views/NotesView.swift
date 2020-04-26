@@ -9,34 +9,33 @@
 import SwiftUI
 
 struct NotesView: View {
-    
+
     @EnvironmentObject var conductor: Conductor
-    
+
     var body: some View {
-        
+
         VStack {
             HStack {
-                
-                if conductor.noteOnePressed && conductor.note1 != 0 {
-                
+
+                if conductor.noteOnePressed && conductor.smallNote1GridPos != 0 {
+
                 Spacer()
                 Text("Note: \(self.conductor.noteOneName)")
                     .font(.title)
                 }
-                
-                if conductor.noteTwoPressed && conductor.note2 != 0 {
-                
+
+                if conductor.noteTwoPressed && conductor.smallNote2GridPos != 0 {
+
                 Text("Note 2: \(self.conductor.noteTwoName)")
                 .font(.title)
                 }
-                
-                if conductor.noteThreePressed && conductor.note3 != 0 {
-                
+
+                if conductor.noteThreePressed && conductor.smallNote3GridPos != 0 {
+
                 Text("Note 3: \(self.conductor.noteThreeName)")
                 .font(.title)
                 }
-                
-                
+
                 Spacer()
                 Text("Velocity: \(self.conductor.velocity)")
                     .font(.title)

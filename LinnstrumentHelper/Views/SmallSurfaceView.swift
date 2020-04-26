@@ -10,16 +10,15 @@ import SwiftUI
 import Grid
 
 struct SmallSurfaceView: View {
-    
+
     @EnvironmentObject var conductor: Conductor
-    
+
     @State var selection: Int = 0
     @State var selection1: Int = 80
     @State var items: [Item] = (0 ... 127).map { Item(number: $0) }
     @State var showSettings: Bool = false
     @State var style = ModularGridStyle(columns: 16, rows: .fixed(70))
-    
-    
+
     var body: some View {
         VStack(alignment: .trailing) {
             Button(action: { self.showSettings = true }) {
@@ -28,18 +27,17 @@ struct SmallSurfaceView: View {
             ScrollView(style.axes) {
                 Grid(items) { item in
                     Card(title: "\(item.shortNoteNames[item.number])", color: item.color)
-                        
+
                         .onTapGesture {
-                            
+
                             self.conductor.note1 = UInt8(item.number)
                             print(item.number)
 
-                           }
+                        }
                 }
-                    
 
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                    
+
                     RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.blue)
@@ -52,9 +50,9 @@ struct SmallSurfaceView: View {
                             y: preferences[Int(self.conductor.smallNote1GridPos)].midY
                         )
                 }
-                
+
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                    
+
                     RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.purple)
@@ -69,7 +67,7 @@ struct SmallSurfaceView: View {
                 }
 
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                    
+
                     RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.orange)
@@ -82,9 +80,9 @@ struct SmallSurfaceView: View {
                             y: preferences[Int(self.conductor.smallNote3GridPos)].midY
                         )
                 }
-                    
+
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                    
+
                     RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.red)

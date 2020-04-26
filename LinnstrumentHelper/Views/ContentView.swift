@@ -11,32 +11,31 @@ import AudioKit
 import Combine
 
 struct ContentView: View {
-    
+
     @EnvironmentObject var conductor: Conductor
-    
+
     var body: some View {
-        
+
         VStack {
-        
+
         TabView {
-        
+
             PlayingSurfaceView()
             .tabItem {
                 Text("Linnstrument")
             }
-            
+
             SmallSurfaceView()
             .tabItem {
                 Text("Linnstrument 128")
             }
         }
-          
+
     NotesView()
-            
+
         }.padding()
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

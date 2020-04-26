@@ -13,14 +13,14 @@ struct ModularGridSettingsView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var conductor: Conductor
     @Binding var style: ModularGridStyle
-    
+
     var body: some View {
-        VStack() {
+        VStack {
             HStack(spacing: 300) {
                 Text("Note Spacing (\(Int(self.style.spacing)))").fixedSize()
             } //.padding()
             Slider(value: self.$style.spacing, in: 0...32)
-            
+
             Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
                 Text("Close")
             }

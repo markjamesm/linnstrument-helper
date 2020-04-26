@@ -14,9 +14,9 @@ struct PlayingSurfaceView: View {
     @State var items: [Item] = (0...199).map { Item(number: $0) }
     @State var showSettings: Bool = false
     @State var style = ModularGridStyle(columns: 25, rows: .fixed(60))
-    
+
     @EnvironmentObject var conductor: Conductor
-    
+
    var body: some View {
             VStack(alignment: .trailing) {
                 Button(action: { self.showSettings = true }) {
@@ -25,24 +25,23 @@ struct PlayingSurfaceView: View {
                 ScrollView(style.axes) {
                     Grid(items) { item in
                         Card(title: "\(item.noteNames[item.number])", color: item.color)
-                            
+
                             .onTapGesture {
-                                
+
                                 self.conductor.note1 = UInt8(item.number)
                            //     print(item.shortMIDINoteNumber[item.number])
                                 print(item.number)
 
                                }
-                            
+
                           //  .onReceive(self.conductor.$lastNote, perform: { note in
 
                          //   })
-                    
+
                     }
-                        
 
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                        
+
                         RoundedRectangle(cornerRadius: 16)
                             .strokeBorder(lineWidth: 4)
                             .foregroundColor(.blue)
@@ -56,9 +55,9 @@ struct PlayingSurfaceView: View {
                             )
                         //    .animation(.default)
                     }
-                    
+
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                        
+
                         RoundedRectangle(cornerRadius: 16)
                             .strokeBorder(lineWidth: 4)
                             .foregroundColor(.purple)
@@ -73,7 +72,7 @@ struct PlayingSurfaceView: View {
                     }
 
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                        
+
                         RoundedRectangle(cornerRadius: 16)
                             .strokeBorder(lineWidth: 4)
                             .foregroundColor(.orange)
@@ -86,9 +85,9 @@ struct PlayingSurfaceView: View {
                                 y: preferences[Int(self.conductor.note3)].midY
                             )
                     }
-                        
+
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                        
+
                         RoundedRectangle(cornerRadius: 16)
                             .strokeBorder(lineWidth: 4)
                             .foregroundColor(.red)
@@ -101,7 +100,7 @@ struct PlayingSurfaceView: View {
                                 y: preferences[Int(self.conductor.note4)].midY
                             )
                     }
-                        
+
                     .padding()
                 }
 
