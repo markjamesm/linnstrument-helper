@@ -18,6 +18,11 @@ class Conductor: AKMIDIListener, ObservableObject {
     @Published var note3: UInt8 = 0
     @Published var note4: UInt8 = 0
     @Published var note5: UInt8 = 0
+    @Published var smallNote1GridPos: UInt8 = 0
+    @Published var smallNote2GridPos: UInt8 = 0
+    @Published var smallNote3GridPos: UInt8 = 0
+    @Published var smallNote4GridPos: UInt8 = 0
+    @Published var smallNote5GridPos: UInt8 = 0
     @Published var lastNote: UInt8 = 0
     @Published var noteOneName: String = " "
     @Published var noteTwoName: String = " "
@@ -25,6 +30,7 @@ class Conductor: AKMIDIListener, ObservableObject {
     @Published var noteFourName: String = " "
     @Published var noteFiveName: String = " "
     @Published var notesHeld: Array<UInt8> = [0]
+    @Published var noteNames: Array<UInt8> = [0]
     @Published var noteOnePressed: Bool
     @Published var noteTwoPressed: Bool
     @Published var noteThreePressed: Bool
@@ -68,7 +74,17 @@ class Conductor: AKMIDIListener, ObservableObject {
           //  self.noteNumber = noteNumber
          //   print(noteNumber)
         //    self.lastNote = noteNumber
+            
+            
             self.notesHeld.insert(UInt8(self.midiToSmallGrid(noteNumber: noteNumber)), at: self.notesHeld.endIndex)
+            
+            self.smallNote1GridPos = self.notesHeld.dropFirst(1).first ?? 0
+            self.smallNote2GridPos = self.notesHeld.dropFirst(2).first ?? 0
+            self.smallNote3GridPos = self.notesHeld.dropFirst(3).first ?? 0
+            self.smallNote4GridPos = self.notesHeld.dropFirst(4).first ?? 0
+            self.smallNote5GridPos = self.notesHeld.dropFirst(5).first ?? 0
+        
+            self.noteNames.insert(noteNumber, at: self.noteNames.endIndex)
           //  print(self.notesHeld)
         //    self.isNotePressed = true
             
@@ -77,11 +93,11 @@ class Conductor: AKMIDIListener, ObservableObject {
             self.velocity = velocity
             self.channel = channel + 1
           //  self.noteGrid = self.midiToSmallGrid(noteNumber: noteNumber)
-            self.note1 = self.notesHeld.dropFirst(1).first ?? 0
-            self.note2 = self.notesHeld.dropFirst(2).first ?? 0
-            self.note3 = self.notesHeld.dropFirst(3).first ?? 0
-            self.note4 = self.notesHeld.dropFirst(4).first ?? 0
-            self.note5 = self.notesHeld.dropFirst(5).first ?? 0
+            self.note1 = self.noteNames.dropFirst(1).first ?? 0
+            self.note2 = self.noteNames.dropFirst(2).first ?? 0
+            self.note3 = self.noteNames.dropFirst(3).first ?? 0
+            self.note4 = self.noteNames.dropFirst(4).first ?? 0
+            self.note5 = self.noteNames.dropFirst(5).first ?? 0
             
             self.noteOnePressed = true
             self.noteTwoPressed = true
@@ -94,6 +110,8 @@ class Conductor: AKMIDIListener, ObservableObject {
             self.noteThreeName = self.midiToNote(noteNumber: self.note3)
             self.noteFourName = self.midiToNote(noteNumber: self.note4)
             self.noteFiveName = self.midiToNote(noteNumber: self.note5)
+            print(self.note1)
+            print(self.note2)
             
            // print(self.note1, self.note2, self.note3)
         }
@@ -108,14 +126,22 @@ class Conductor: AKMIDIListener, ObservableObject {
         DispatchQueue.main.async {
             self.noteNumber = 0
             self.notesHeld.removeLast()
+            self.noteNames.removeLast()
             self.noteOnePressed = false
-            self.noteOneName = " "
+       //     self.noteOneName = " "
+            
             self.stopNote(noteNumber: noteNumber)
            // self.velocity = 0
             self.note1 = 0
             self.note2 = 0
             self.note3 = 0
             self.note4 = 0
+            
+            self.smallNote1GridPos = 0
+            self.smallNote2GridPos = 0
+            self.smallNote3GridPos = 0
+            self.smallNote4GridPos = 0
+            self.smallNote5GridPos = 0
             
             self.noteOnePressed = false
             self.noteTwoPressed = false

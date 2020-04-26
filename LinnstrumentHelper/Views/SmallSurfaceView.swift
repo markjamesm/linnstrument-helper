@@ -44,12 +44,12 @@ struct SmallSurfaceView: View {
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.blue)
                         .frame(
-                            width: preferences[Int(self.conductor.note1)].width,
-                            height: preferences[Int(self.conductor.note1)].height
+                            width: preferences[Int(self.conductor.smallNote1GridPos)].width,
+                            height: preferences[Int(self.conductor.smallNote1GridPos)].height
                         )
                         .position(
-                            x: preferences[Int(self.conductor.note1)].midX,
-                            y: preferences[Int(self.conductor.note1)].midY
+                            x: preferences[Int(self.conductor.smallNote1GridPos)].midX,
+                            y: preferences[Int(self.conductor.smallNote1GridPos)].midY
                         )
                 }
                 
@@ -59,12 +59,12 @@ struct SmallSurfaceView: View {
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.purple)
                         .frame(
-                            width: preferences[Int(self.conductor.note2)].width,
-                            height: preferences[Int(self.conductor.note2)].height
+                            width: preferences[Int(self.conductor.smallNote2GridPos)].width,
+                            height: preferences[Int(self.conductor.smallNote2GridPos)].height
                         )
                         .position(
-                            x: preferences[Int(self.conductor.note2)].midX,
-                            y: preferences[Int(self.conductor.note2)].midY
+                            x: preferences[Int(self.conductor.smallNote2GridPos)].midX,
+                            y: preferences[Int(self.conductor.smallNote2GridPos)].midY
                         )
                 }
 
@@ -74,12 +74,12 @@ struct SmallSurfaceView: View {
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.orange)
                         .frame(
-                            width: preferences[Int(self.conductor.note3)].width,
-                            height: preferences[Int(self.conductor.note3)].height
+                            width: preferences[Int(self.conductor.smallNote3GridPos)].width,
+                            height: preferences[Int(self.conductor.smallNote3GridPos)].height
                         )
                         .position(
-                            x: preferences[Int(self.conductor.note3)].midX,
-                            y: preferences[Int(self.conductor.note3)].midY
+                            x: preferences[Int(self.conductor.smallNote3GridPos)].midX,
+                            y: preferences[Int(self.conductor.smallNote3GridPos)].midY
                         )
                 }
                     
@@ -89,12 +89,12 @@ struct SmallSurfaceView: View {
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.red)
                         .frame(
-                            width: preferences[Int(self.conductor.note4)].width,
-                            height: preferences[Int(self.conductor.note4)].height
+                            width: preferences[Int(self.conductor.smallNote4GridPos)].width,
+                            height: preferences[Int(self.conductor.smallNote4GridPos)].height
                         )
                         .position(
-                            x: preferences[Int(self.conductor.note4)].midX,
-                            y: preferences[Int(self.conductor.note4)].midY
+                            x: preferences[Int(self.conductor.smallNote4GridPos)].midX,
+                            y: preferences[Int(self.conductor.smallNote4GridPos)].midY
                         )
                 }
                 .padding()
