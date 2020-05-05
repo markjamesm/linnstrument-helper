@@ -27,17 +27,8 @@ struct PlayingSurfaceView: View {
                         Card(title: "\(item.noteNames[item.number])", color: item.color)
 
                             .onTapGesture {
-
                                 self.conductor.note1 = UInt8(item.number)
-                           //     print(item.shortMIDINoteNumber[item.number])
-                             //   print(item.number)
-
                                }
-
-                          //  .onReceive(self.conductor.$lastNote, perform: { note in
-
-                         //   })
-
                     }
 
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in

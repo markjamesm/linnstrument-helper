@@ -37,4 +37,167 @@ struct MIDIEngine {
 
          return Int(smallGrid[noteNumber] ?? 0)
     }
+    
+    // Displays all the notes for the .overlayPreferenceValues
+    func mapSmallGridNotes(note: UInt8?) -> [Int] {
+        
+        if note == 30 {
+            return [112]
+        }
+        if note == 31 {
+            return [113]
+        }
+        if note == 32 {
+                return [114]
+        }
+        if note == 33 {
+                return [115]
+        }
+        if note == 34 {
+                return [116]
+        }
+        if note == 35 {
+                return [117, 96]
+        }
+        if note == 36 {
+                return [118, 97]
+        }
+        if note == 37 {
+            return [119, 98]
+        }
+        if note == 38 {
+            return [120, 99]
+        }
+        if note == 39 {
+            return [121, 100]
+        }
+        if note == 40 {
+            return [122, 101, 80]
+        }
+        if note == 41 {
+            return [123, 102, 81]
+        }
+        if note == 42 {
+            return [124, 103, 82]
+        }
+        if note == 43 {
+            return [125, 104, 83]
+        }
+        if note == 44 {
+            return [126, 105, 84]
+        }
+        if note == 45 {
+            return [127, 106, 85, 64]
+        }
+        if note == 46 {
+            return [86, 65, 107]
+        }
+        if note == 47 {
+            return [87, 108, 66]
+        }
+        if note == 48 {
+            return [88, 67]
+        }
+        if note == 49 {
+            return [89, 68]
+        }
+        if note == 50 {
+            return [90, 69, 48]
+        }
+        if note == 51 {
+            return [91, 70, 49]
+        }
+        if note == 52 {
+            return [92, 71, 50]
+        }
+        if note == 53 {
+            return [93, 72, 51]
+        }
+        if note == 54 {
+            return [94, 73, 52]
+        }
+        if note == 55 {
+            return [95, 74, 53, 32]
+        }
+        if note == 56 {
+        return [75, 54, 33]
+        }
+        if note == 57 {
+            return [76, 55, 34]
+        }
+        if note == 58 {
+            return [77, 56, 35]
+        }
+        if note == 59 {
+            return [78, 57]
+        }
+        if note == 60 {
+            return [79, 58, 37, 16]
+        }
+        if note == 61 {
+            return [59, 38, 17]
+        }
+        if note == 62 {
+            return [60, 39, 18]
+        }
+        if note == 63 {
+            return [61, 40, 19]
+        }
+        if note == 64 {
+            return [62, 41, 20]
+        }
+        if note == 65 {
+            return [63, 42, 21, 0]
+        }
+        if note == 66 {
+            return [43, 22, 1]
+        }
+        if note == 67 {
+            return [44, 23, 2]
+        }
+        if note == 68 {
+            return [45, 24, 3]
+        }
+        if note == 69 {
+            return [46, 25, 4]
+        }
+        if note == 70 {
+            return [47, 26, 5]
+        }
+        if note == 71 {
+            return [27, 6]
+        }
+        if note == 72 {
+            return [28, 7]
+        }
+        if note == 73 {
+            return [29, 8]
+        }
+        if note == 74 {
+            return [30, 9]
+        }
+        if note == 75 {
+            return [10]
+        }
+        if note == 76 {
+            return [11]
+        }
+        if note == 77 {
+            return [12]
+        }
+        if note == 78 {
+            return [13]
+        }
+        if note == 79 {
+            return [14]
+        }
+        if note == 80 {
+            return [15]
+        }
+        
+        else {
+            return []
+        }
+    }
+    
 }

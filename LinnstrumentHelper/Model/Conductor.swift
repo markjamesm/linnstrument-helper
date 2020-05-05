@@ -106,9 +106,7 @@ class Conductor: AKMIDIListener, ObservableObject {
             self.noteTwoName = self.note2 != nil ? self.midiEngine.midiToNote(noteNumber: self.note2!) : ""
             self.noteThreeName = self.note3 != nil ? self.midiEngine.midiToNote(noteNumber: self.note3!) : ""
             self.noteFourName = self.note4 != nil ? self.midiEngine.midiToNote(noteNumber: self.note4!) : ""
-           // self.noteFiveName = self.midiEngine.midiToNote(noteNumber: self.note5 ?? 0)
-            
-            print(self.noteOneName)
+            // self.noteFiveName = self.midiEngine.midiToNote(noteNumber: self.note5 ?? 0)
 
             self.noteOnePressed = true
             self.noteTwoPressed = true
@@ -122,6 +120,14 @@ class Conductor: AKMIDIListener, ObservableObject {
             //-----------------------------------------
             
             self.playNote(noteNumber: noteNumber, velocity: velocity)
+            
+            //-----------------------------------------
+            // Debug
+            //-----------------------------------------
+            
+            // print(self.noteOneName)
+            // print(self.note1)
+            // print(self.smallNote1GridPos)
         }
     }
 
