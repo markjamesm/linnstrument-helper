@@ -16,6 +16,8 @@ struct PlayingSurfaceView: View {
     @State var style = ModularGridStyle(columns: 25, rows: .fixed(60))
 
     @EnvironmentObject var conductor: Conductor
+    
+    let midiEngine = MIDIEngine()
 
    var body: some View {
             VStack(alignment: .trailing) {
@@ -30,7 +32,26 @@ struct PlayingSurfaceView: View {
                                 self.conductor.note1 = UInt8(item.number)
                                }
                     }
+                    
+                    .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+    
+                        ZStack {
+                            ForEach(self.midiEngine.mapSmallGridNotes(note: self.conductor.note1), id: \.self) { note in
+                                NoteBorder(color: .blue, rect: preferences[note])
+                            }
+                            ForEach(self.midiEngine.mapSmallGridNotes(note: self.conductor.note2), id: \.self) { note in
+                                NoteBorder(color: .green, rect: preferences[note])
+                            }
+                            ForEach(self.midiEngine.mapSmallGridNotes(note: self.conductor.note3), id: \.self) { note in
+                                NoteBorder(color: .orange, rect: preferences[note])
+                            }
+                            ForEach(self.midiEngine.mapSmallGridNotes(note: self.conductor.note4), id: \.self) { note in
+                                NoteBorder(color: .red, rect: preferences[note])
+                            }
+                        }
+    }
 
+                    /*
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
                         
                         Group {
@@ -116,7 +137,7 @@ struct PlayingSurfaceView: View {
                                     EmptyView()
                                 }
                             }
-                        }
+                        } */
                     }
                         
             .sheet(isPresented: self.$showSettings) {
@@ -125,10 +146,10 @@ struct PlayingSurfaceView: View {
             .gridStyle(
                 self.style
             )
-            }
         }
     }
 }
+
 
 struct PlayingSurfaceView_Previews: PreviewProvider {
     static var previews: some View {

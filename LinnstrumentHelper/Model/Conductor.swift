@@ -126,7 +126,7 @@ class Conductor: AKMIDIListener, ObservableObject {
             //-----------------------------------------
             
             // print(self.noteOneName)
-            // print(self.note1)
+             print(self.note1)
             // print(self.smallNote1GridPos)
         }
     }
