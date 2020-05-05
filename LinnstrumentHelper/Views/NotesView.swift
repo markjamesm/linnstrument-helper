@@ -17,25 +17,26 @@ struct NotesView: View {
         VStack {
             HStack {
 
-                if conductor.noteOnePressed && conductor.smallNote1GridPos != 0 {
-
-                Spacer()
+              //  Spacer()
                 Text("Note: \(self.conductor.noteOneName)")
                     .font(.title)
-                }
-
-                if conductor.noteTwoPressed && conductor.smallNote2GridPos != 0 {
-
+                    .padding()
+                //Spacer()
+                
                 Text("Note 2: \(self.conductor.noteTwoName)")
                 .font(.title)
-                }
-
-                if conductor.noteThreePressed && conductor.smallNote3GridPos != 0 {
-
+                .padding()
+               // Spacer()
+                
                 Text("Note 3: \(self.conductor.noteThreeName)")
                 .font(.title)
-                }
-
+                .padding()
+                
+                Text("Note 4: \(self.conductor.noteFourName)")
+                .font(.title)
+                .padding()
+            }
+            HStack {
                 Spacer()
                 Text("Velocity: \(self.conductor.velocity)")
                     .font(.title)

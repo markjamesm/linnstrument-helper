@@ -22,6 +22,7 @@
 		EC690383244E8C1B008316E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC690382244E8C1B008316E5 /* Assets.xcassets */; };
 		EC690386244E8C1B008316E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC690385244E8C1B008316E5 /* Preview Assets.xcassets */; };
 		EC690389244E8C1B008316E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC690387244E8C1B008316E5 /* Main.storyboard */; };
+		ECFC18F22461BFEB002787FC /* NoteBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC18F12461BFEB002787FC /* NoteBorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		EC690388244E8C1B008316E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC69038A244E8C1B008316E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC69038B244E8C1B008316E5 /* LinnstrumentHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinnstrumentHelper.entitlements; sourceTree = "<group>"; };
+		ECFC18F12461BFEB002787FC /* NoteBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBorder.swift; sourceTree = "<group>"; };
 		FEB927FBED2935E61CBD5AA8 /* Pods-LinnstrumentHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinnstrumentHelper.release.xcconfig"; path = "Target Support Files/Pods-LinnstrumentHelper/Pods-LinnstrumentHelper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				EC212814244FB38F00342DD1 /* Item.swift */,
 				EC212818244FB46D00342DD1 /* Card.swift */,
 				EC20865124527CBC00672985 /* SettingsView.swift */,
+				ECFC18F12461BFEB002787FC /* NoteBorder.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				EC212819244FB46D00342DD1 /* Card.swift in Sources */,
 				EC2086582456119400672985 /* MIDIEngine.swift in Sources */,
 				EC208656245533F600672985 /* NotesView.swift in Sources */,
+				ECFC18F22461BFEB002787FC /* NoteBorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,7 +30,7 @@ struct PlayingSurfaceView: View {
 
                                 self.conductor.note1 = UInt8(item.number)
                            //     print(item.shortMIDINoteNumber[item.number])
-                                print(item.number)
+                             //   print(item.number)
 
                                }
 
@@ -41,81 +41,107 @@ struct PlayingSurfaceView: View {
                     }
 
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                        
+                        Group {
+                            if self.conductor.note1 != nil {
 
                         RoundedRectangle(cornerRadius: 16)
                             .strokeBorder(lineWidth: 4)
                             .foregroundColor(.blue)
                             .frame(
-                                width: preferences[Int(self.conductor.note1)].width,
-                                height: preferences[Int(self.conductor.note1)].height
+                                width: preferences[Int(self.conductor.note1!)].width,
+                                height: preferences[Int(self.conductor.note1!)].height
                             )
                             .position(
-                                x: preferences[Int(self.conductor.note1)].midX,
-                                y: preferences[Int(self.conductor.note1)].midY
+                                x: preferences[Int(self.conductor.note1!)].midX,
+                                y: preferences[Int(self.conductor.note1!)].midY
                             )
-                        //    .animation(.default)
+                            } else {
+                                EmptyView()
+                            }
+                        }
                     }
 
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                        
+                        Group {
+                        if self.conductor.note2 != nil {
 
                         RoundedRectangle(cornerRadius: 16)
                             .strokeBorder(lineWidth: 4)
                             .foregroundColor(.purple)
                             .frame(
-                                width: preferences[Int(self.conductor.note2)].width,
-                                height: preferences[Int(self.conductor.note2)].height
+                                width: preferences[Int(self.conductor.note2!)].width,
+                                height: preferences[Int(self.conductor.note2!)].height
                             )
                             .position(
-                                x: preferences[Int(self.conductor.note2)].midX,
-                                y: preferences[Int(self.conductor.note2)].midY
+                                x: preferences[Int(self.conductor.note2!)].midX,
+                                y: preferences[Int(self.conductor.note2!)].midY
                             )
+                            }  else {
+                                    EmptyView()
+                                }
+                        }
                     }
 
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                        
+                        Group {
+                            if self.conductor.note3 != nil {
 
                         RoundedRectangle(cornerRadius: 16)
                             .strokeBorder(lineWidth: 4)
                             .foregroundColor(.orange)
                             .frame(
-                                width: preferences[Int(self.conductor.note3)].width,
-                                height: preferences[Int(self.conductor.note3)].height
+                                width: preferences[Int(self.conductor.note3!)].width,
+                                height: preferences[Int(self.conductor.note3!)].height
                             )
                             .position(
-                                x: preferences[Int(self.conductor.note3)].midX,
-                                y: preferences[Int(self.conductor.note3)].midY
+                                x: preferences[Int(self.conductor.note3!)].midX,
+                                y: preferences[Int(self.conductor.note3!)].midY
                             )
+                            } else {
+                                EmptyView()
+                            }
                     }
 
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                        
+                        Group {
+                            if self.conductor.note4 != nil {
 
-                        RoundedRectangle(cornerRadius: 16)
-                            .strokeBorder(lineWidth: 4)
-                            .foregroundColor(.red)
-                            .frame(
-                                width: preferences[Int(self.conductor.note4)].width,
-                                height: preferences[Int(self.conductor.note4)].height
-                            )
-                            .position(
-                                x: preferences[Int(self.conductor.note4)].midX,
-                                y: preferences[Int(self.conductor.note4)].midY
-                            )
+                                RoundedRectangle(cornerRadius: 16)
+                                    .strokeBorder(lineWidth: 4)
+                                    .foregroundColor(.red)
+                                    .frame(
+                                        width: preferences[Int(self.conductor.note4!)].width,
+                                        height: preferences[Int(self.conductor.note4!)].height
+                                )
+                                    .position(
+                                        x: preferences[Int(self.conductor.note4!)].midX,
+                                        y: preferences[Int(self.conductor.note4!)].midY
+                                )
+                                } else {
+                                    EmptyView()
+                                }
+                            }
+                        }
                     }
-
-                    .padding()
-                }
-
-            }
+                        
             .sheet(isPresented: self.$showSettings) {
                 ModularGridSettingsView(style: self.$style)
             }
             .gridStyle(
                 self.style
             )
+            }
         }
     }
+}
 
 struct PlayingSurfaceView_Previews: PreviewProvider {
     static var previews: some View {
         PlayingSurfaceView().environmentObject(Conductor())
     }
 }
+

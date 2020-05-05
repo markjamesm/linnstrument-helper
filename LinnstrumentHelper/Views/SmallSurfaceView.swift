@@ -37,65 +37,88 @@ struct SmallSurfaceView: View {
                 }
 
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                    
+                    Group {
+                        if self.conductor.smallNote1GridPos != nil {
 
                     RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.blue)
                         .frame(
-                            width: preferences[Int(self.conductor.smallNote1GridPos)].width,
-                            height: preferences[Int(self.conductor.smallNote1GridPos)].height
+                            width: preferences[Int(self.conductor.smallNote1GridPos!)].width,
+                            height: preferences[Int(self.conductor.smallNote1GridPos!)].height
                         )
                         .position(
-                            x: preferences[Int(self.conductor.smallNote1GridPos)].midX,
-                            y: preferences[Int(self.conductor.smallNote1GridPos)].midY
+                            x: preferences[Int(self.conductor.smallNote1GridPos!)].midX,
+                            y: preferences[Int(self.conductor.smallNote1GridPos!)].midY
                         )
+                        } else {
+                            EmptyView()
+                        }
+                }
                 }
 
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                    Group {
+                        if self.conductor.smallNote2GridPos != nil {
 
                     RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.purple)
                         .frame(
-                            width: preferences[Int(self.conductor.smallNote2GridPos)].width,
-                            height: preferences[Int(self.conductor.smallNote2GridPos)].height
+                            width: preferences[Int(self.conductor.smallNote2GridPos!)].width,
+                            height: preferences[Int(self.conductor.smallNote2GridPos!)].height
                         )
                         .position(
-                            x: preferences[Int(self.conductor.smallNote2GridPos)].midX,
-                            y: preferences[Int(self.conductor.smallNote2GridPos)].midY
+                            x: preferences[Int(self.conductor.smallNote2GridPos!)].midX,
+                            y: preferences[Int(self.conductor.smallNote2GridPos!)].midY
                         )
+                        } else {
+                            EmptyView()
+                        }
                 }
+                    }
 
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                    Group {
+                        if self.conductor.smallNote3GridPos != nil {
 
                     RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(lineWidth: 4)
                         .foregroundColor(.orange)
                         .frame(
-                            width: preferences[Int(self.conductor.smallNote3GridPos)].width,
-                            height: preferences[Int(self.conductor.smallNote3GridPos)].height
+                            width: preferences[Int(self.conductor.smallNote3GridPos!)].width,
+                            height: preferences[Int(self.conductor.smallNote3GridPos!)].height
                         )
                         .position(
-                            x: preferences[Int(self.conductor.smallNote3GridPos)].midX,
-                            y: preferences[Int(self.conductor.smallNote3GridPos)].midY
+                            x: preferences[Int(self.conductor.smallNote3GridPos!)].midX,
+                            y: preferences[Int(self.conductor.smallNote3GridPos!)].midY
                         )
+                        } else {
+                            EmptyView()
+                        }
+                    }
                 }
 
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
+                    Group {
+                        if self.conductor.smallNote4GridPos != nil {
 
-                    RoundedRectangle(cornerRadius: 16)
-                        .strokeBorder(lineWidth: 4)
-                        .foregroundColor(.red)
-                        .frame(
-                            width: preferences[Int(self.conductor.smallNote4GridPos)].width,
-                            height: preferences[Int(self.conductor.smallNote4GridPos)].height
-                        )
-                        .position(
-                            x: preferences[Int(self.conductor.smallNote4GridPos)].midX,
-                            y: preferences[Int(self.conductor.smallNote4GridPos)].midY
-                        )
-                }
-                .padding()
+                            RoundedRectangle(cornerRadius: 16)
+                                .strokeBorder(lineWidth: 4)
+                                .foregroundColor(.red)
+                                .frame(
+                                    width: preferences[Int(self.conductor.smallNote4GridPos!)].width,
+                                    height: preferences[Int(self.conductor.smallNote4GridPos!)].height
+                                )
+                                .position(
+                                    x: preferences[Int(self.conductor.smallNote4GridPos!)].midX,
+                                    y: preferences[Int(self.conductor.smallNote4GridPos!)].midY
+                                )
+                        } else {
+                            EmptyView()
+                          }
+                    }
             }
         }
         .sheet(isPresented: self.$showSettings) {
@@ -105,6 +128,7 @@ struct SmallSurfaceView: View {
             self.style
         )
     }
+}
 }
 
 struct SmallSurfaceView_Previews: PreviewProvider {
