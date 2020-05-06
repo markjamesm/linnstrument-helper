@@ -76,14 +76,9 @@ class Conductor: AKMIDIListener, ObservableObject {
             self.velocity = velocity
             self.channel = channel + 1
             
-            //-----------------------------------------
-            // LS 200 Grid Mapping
-            //-----------------------------------------
-            
-            
             
             //-----------------------------------------
-            // LS 128 Grid mapping
+            // Grid mappings
             //-----------------------------------------
             
             self.notesHeld.insert(UInt8(self.midiEngine.midiToSmallGrid(noteNumber: noteNumber)), at: self.notesHeld.endIndex)
@@ -120,14 +115,6 @@ class Conductor: AKMIDIListener, ObservableObject {
             //-----------------------------------------
             
             self.playNote(noteNumber: noteNumber, velocity: velocity)
-            
-            //-----------------------------------------
-            // Debug
-            //-----------------------------------------
-            
-            // print(self.noteOneName)
-             print(self.note1)
-            // print(self.smallNote1GridPos)
         }
     }
 
@@ -140,13 +127,7 @@ class Conductor: AKMIDIListener, ObservableObject {
         DispatchQueue.main.async {
 
             //-----------------------------------------
-            // Board Logic (LS 200)
-            //-----------------------------------------
-            
-            
-
-            //-----------------------------------------
-            // Board Logic (LS 128)
+            // Board Logic
             //-----------------------------------------
 
             // Vars to keep track of the highlighted notes on the grid

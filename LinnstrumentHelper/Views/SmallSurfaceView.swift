@@ -4,6 +4,7 @@
 //
 //  Created by Mark-James McDougall on 2020-04-21.
 //  Copyright © 2020 Mark-James M. All rights reserved.
+//  https://markjames.dev
 //
 
 import SwiftUI
@@ -30,10 +31,10 @@ struct SmallSurfaceView: View {
                 Grid(items) { item in
                     Card(title: "\(item.shortNoteNames[item.number])", color: item.color)
 
-                        .onTapGesture {
-                            self.conductor.note1 = UInt8(item.number)
-                            print(item.number)
-                        }
+                     //   .onTapGesture {
+                        //    self.conductor.note1 = UInt8(item.number)
+                     //       print(item.number)
+                     //   }
                 }
 
                 .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in

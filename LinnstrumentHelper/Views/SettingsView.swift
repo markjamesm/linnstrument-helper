@@ -4,6 +4,7 @@
 //
 //  Created by Mark-James McDougall on 2020-04-23.
 //  Copyright © 2020 Mark-James M. All rights reserved.
+//  https://markjames.dev
 //
 
 import SwiftUI
@@ -18,7 +19,7 @@ struct ModularGridSettingsView: View {
         VStack {
             HStack(spacing: 300) {
                 Text("Note Spacing (\(Int(self.style.spacing)))").fixedSize()
-            } //.padding()
+            }
             Slider(value: self.$style.spacing, in: 0...32)
 
             Button(action: { self.presentationMode.wrappedValue.dismiss() }) {

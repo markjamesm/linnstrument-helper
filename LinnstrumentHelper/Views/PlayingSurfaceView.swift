@@ -4,6 +4,7 @@
 //
 //  Created by Mark-James McDougall on 2020-04-21.
 //  Copyright © 2020 Mark-James M. All rights reserved.
+//  https://markjames.dev
 //
 
 import SwiftUI
@@ -28,117 +29,30 @@ struct PlayingSurfaceView: View {
                     Grid(items) { item in
                         Card(title: "\(item.noteNames[item.number])", color: item.color)
 
-                            .onTapGesture {
-                                self.conductor.note1 = UInt8(item.number)
-                               }
+                      //      .onTapGesture {
+                       //         self.conductor.note1 = UInt8(item.number)
+                      //          print(item.number)
+                      //         }
                     }
                     
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
     
                         ZStack {
-                            ForEach(self.midiEngine.mapSmallGridNotes(note: self.conductor.note1), id: \.self) { note in
+                            ForEach(self.midiEngine.mapGridNotes(note: self.conductor.note1), id: \.self) { note in
                                 NoteBorder(color: .blue, rect: preferences[note])
                             }
-                            ForEach(self.midiEngine.mapSmallGridNotes(note: self.conductor.note2), id: \.self) { note in
+                            ForEach(self.midiEngine.mapGridNotes(note: self.conductor.note2), id: \.self) { note in
                                 NoteBorder(color: .green, rect: preferences[note])
                             }
-                            ForEach(self.midiEngine.mapSmallGridNotes(note: self.conductor.note3), id: \.self) { note in
+                            ForEach(self.midiEngine.mapGridNotes(note: self.conductor.note3), id: \.self) { note in
                                 NoteBorder(color: .orange, rect: preferences[note])
                             }
-                            ForEach(self.midiEngine.mapSmallGridNotes(note: self.conductor.note4), id: \.self) { note in
+                            ForEach(self.midiEngine.mapGridNotes(note: self.conductor.note4), id: \.self) { note in
                                 NoteBorder(color: .red, rect: preferences[note])
                             }
                         }
-    }
-
-                    /*
-                    .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                        
-                        Group {
-                            if self.conductor.note1 != nil {
-
-                        RoundedRectangle(cornerRadius: 16)
-                            .strokeBorder(lineWidth: 4)
-                            .foregroundColor(.blue)
-                            .frame(
-                                width: preferences[Int(self.conductor.note1!)].width,
-                                height: preferences[Int(self.conductor.note1!)].height
-                            )
-                            .position(
-                                x: preferences[Int(self.conductor.note1!)].midX,
-                                y: preferences[Int(self.conductor.note1!)].midY
-                            )
-                            } else {
-                                EmptyView()
-                            }
-                        }
                     }
-
-                    .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                        
-                        Group {
-                        if self.conductor.note2 != nil {
-
-                        RoundedRectangle(cornerRadius: 16)
-                            .strokeBorder(lineWidth: 4)
-                            .foregroundColor(.purple)
-                            .frame(
-                                width: preferences[Int(self.conductor.note2!)].width,
-                                height: preferences[Int(self.conductor.note2!)].height
-                            )
-                            .position(
-                                x: preferences[Int(self.conductor.note2!)].midX,
-                                y: preferences[Int(self.conductor.note2!)].midY
-                            )
-                            }  else {
-                                    EmptyView()
-                                }
-                        }
-                    }
-
-                    .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                        
-                        Group {
-                            if self.conductor.note3 != nil {
-
-                        RoundedRectangle(cornerRadius: 16)
-                            .strokeBorder(lineWidth: 4)
-                            .foregroundColor(.orange)
-                            .frame(
-                                width: preferences[Int(self.conductor.note3!)].width,
-                                height: preferences[Int(self.conductor.note3!)].height
-                            )
-                            .position(
-                                x: preferences[Int(self.conductor.note3!)].midX,
-                                y: preferences[Int(self.conductor.note3!)].midY
-                            )
-                            } else {
-                                EmptyView()
-                            }
-                    }
-
-                    .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
-                        
-                        Group {
-                            if self.conductor.note4 != nil {
-
-                                RoundedRectangle(cornerRadius: 16)
-                                    .strokeBorder(lineWidth: 4)
-                                    .foregroundColor(.red)
-                                    .frame(
-                                        width: preferences[Int(self.conductor.note4!)].width,
-                                        height: preferences[Int(self.conductor.note4!)].height
-                                )
-                                    .position(
-                                        x: preferences[Int(self.conductor.note4!)].midX,
-                                        y: preferences[Int(self.conductor.note4!)].midY
-                                )
-                                } else {
-                                    EmptyView()
-                                }
-                            }
-                        } */
-                    }
+                }
                         
             .sheet(isPresented: self.$showSettings) {
                 ModularGridSettingsView(style: self.$style)
