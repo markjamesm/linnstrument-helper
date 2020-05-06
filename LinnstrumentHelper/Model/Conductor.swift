@@ -4,6 +4,7 @@
 //
 //  Created by Mark-James McDougall on 2020-04-20.
 //  Copyright © 2020 Mark-James M. All rights reserved.
+//  https://markjames.dev
 //
 
 import Foundation
