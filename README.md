@@ -8,17 +8,18 @@ Currently in a beta stage, Linnstrument helper makes use of the [AudioKit](https
 
 ## Features
 
-- Basic polyphonic sound engine
-- Displays current notes played along with velocity 
-- MIDI support for both the original model as well as the Linnstrument 128
+- Polyphonic sound engine.
+- Displays note velocities, names, and locations on the Linnstrument (up to four notes max currently).
+- Resizable grid elements.
+- Compatible with both the full-size Linnstrument and Linnstrument 128.
 
 ## System Requirements
 
 - Mac OS Catalina (10.15)
 
-## Download Link
+## Binaries
 
-- [Linnstrument Helper 1.0](https://github.com/markjamesm/linnstrument-helper/releases/download/1.0/LinnstrumentHelper-1.0.zip)
+- [Linnstrument Helper 1.1](https://github.com/markjamesm/linnstrument-helper/releases)
 
 ## Installation Instructions
 
