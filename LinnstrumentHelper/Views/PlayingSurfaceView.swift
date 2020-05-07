@@ -29,10 +29,10 @@ struct PlayingSurfaceView: View {
                     Grid(items) { item in
                         Card(title: "\(item.noteNames[item.number])", color: item.color)
 
-                            .onTapGesture {
+                        //    .onTapGesture {
                        //         self.conductor.note1 = UInt8(item.number)
-                                print(item.number)
-                           }
+                       //         print(item.number)
+                       //    }
                     }
                     
                     .overlayPreferenceValue(GridItemBoundsPreferencesKey.self) { preferences in
