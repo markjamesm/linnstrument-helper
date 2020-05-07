@@ -80,16 +80,16 @@ struct MIDIEngine {
                return [190, 160, 130, 100]
            }
            if note == 46 {
-               return [191, 161, 130, 101]
+               return [191, 161, 131, 101]
            }
            if note == 47 {
-               return [192, 162, 131, 102]
+               return [192, 162, 132, 102]
            }
            if note == 48 {
-               return [193, 163, 132, 103]
+               return [193, 163, 133, 103]
            }
            if note == 49 {
-               return [194, 164, 133, 104]
+               return [194, 164, 134, 104]
            }
            if note == 50 {
                return [195, 165, 135, 105, 75]
