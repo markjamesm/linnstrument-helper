@@ -8,15 +8,25 @@ Currently in a beta stage, Linnstrument helper makes use of the [AudioKit](https
 
 ## Features
 
-- Basic synth engine
-- Displays current note played along with velocity 
+- Basic polyphonic sound engine
+- Displays current notes played along with velocity 
+- MIDI support for both the original model as well as the Linnstrument 128
 
-## Planned Features
+## System Requirements
 
-- Display notes and chords to onscreen grid
-- Chord detection
-- Add settings page
+- Mac OS Catalina (10.15)
+
+## Download Link
+
+- [Linnstrument Helper 1.0](https://github.com/markjamesm/linnstrument-helper/releases/download/1.0/LinnstrumentHelper-1.0.zip)
+
+## Installation Instructions
+
+- Download Linnstrument Helper 1.0 and unzip.
+- Connect your Linnstrument to your computer and power it on.
+- Set the octave to be in the middle.
+- Run Linnstrument Helper and have fun!
 
 ## Screenshots
 
-<img src="https://user-images.githubusercontent.com/20845425/80164594-680df800-85a7-11ea-81e4-b70c22a2eb38.png"/>
+<img src="https://user-images.githubusercontent.com/20845425/81113716-aaf89580-8eee-11ea-8732-0b1a486deceb.png"/>
