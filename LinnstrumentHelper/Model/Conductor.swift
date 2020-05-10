@@ -51,8 +51,7 @@ class Conductor: AKMIDIListener, ObservableObject {
 
     init() {
 
-
-        midi.openInput(name: "Session 1")
+        midi.openInput()
         midi.addListener(self)
 
         mixer = AKMixer(synth)
