@@ -22,7 +22,9 @@ struct ModularGridSettingsView: View {
             }
             Slider(value: self.$style.spacing, in: 0...32)
 
-            Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
+            Button(action: { self.presentationMode.wrappedValue.dismiss() }
+            )
+            {
                 Text("Close")
             }
             Spacer()

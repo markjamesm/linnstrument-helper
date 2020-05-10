@@ -64,10 +64,8 @@ struct PlayingSurfaceView: View {
     }
 }
 
-
 struct PlayingSurfaceView_Previews: PreviewProvider {
     static var previews: some View {
         PlayingSurfaceView().environmentObject(Conductor())
     }
 }
-

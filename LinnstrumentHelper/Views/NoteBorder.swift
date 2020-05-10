@@ -12,7 +12,6 @@ import SwiftUI
 struct NoteBorder: View {
     let color: Color
     let rect: CGRect
-    
 
     var body: some View {
         RoundedRectangle(cornerRadius: 16)

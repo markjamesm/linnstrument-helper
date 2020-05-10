@@ -65,7 +65,6 @@ struct SmallSurfaceView: View {
     }
 }
 
-
 struct SmallSurfaceView_Previews: PreviewProvider {
     static var previews: some View {
         SmallSurfaceView().environmentObject(Conductor())

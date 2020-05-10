@@ -22,6 +22,7 @@
 		EC690383244E8C1B008316E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC690382244E8C1B008316E5 /* Assets.xcassets */; };
 		EC690386244E8C1B008316E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC690385244E8C1B008316E5 /* Preview Assets.xcassets */; };
 		EC690389244E8C1B008316E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC690387244E8C1B008316E5 /* Main.storyboard */; };
+		ECAD748C2467C24D00F3FC8B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ECAD748B2467C24D00F3FC8B /* .swiftlint.yml */; };
 		ECFC18F22461BFEB002787FC /* NoteBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC18F12461BFEB002787FC /* NoteBorder.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		EC690388244E8C1B008316E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC69038A244E8C1B008316E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC69038B244E8C1B008316E5 /* LinnstrumentHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinnstrumentHelper.entitlements; sourceTree = "<group>"; };
+		ECAD748B2467C24D00F3FC8B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		ECFC18F12461BFEB002787FC /* NoteBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBorder.swift; sourceTree = "<group>"; };
 		FEB927FBED2935E61CBD5AA8 /* Pods-LinnstrumentHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinnstrumentHelper.release.xcconfig"; path = "Target Support Files/Pods-LinnstrumentHelper/Pods-LinnstrumentHelper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +99,7 @@
 		EC690372244E8C1A008316E5 = {
 			isa = PBXGroup;
 			children = (
+				ECAD748B2467C24D00F3FC8B /* .swiftlint.yml */,
 				EC212805244EB70000342DD1 /* .gitignore */,
 				EC69037D244E8C1A008316E5 /* LinnstrumentHelper */,
 				EC69037C244E8C1A008316E5 /* Products */,
@@ -155,6 +158,7 @@
 				EC690377244E8C1A008316E5 /* Sources */,
 				EC690378244E8C1A008316E5 /* Frameworks */,
 				EC690379244E8C1A008316E5 /* Resources */,
+				ECAD748A2467C1F600F3FC8B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -209,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECAD748C2467C24D00F3FC8B /* .swiftlint.yml in Resources */,
 				EC212806244EB70000342DD1 /* .gitignore in Resources */,
 				EC690389244E8C1B008316E5 /* Main.storyboard in Resources */,
 				EC690386244E8C1B008316E5 /* Preview Assets.xcassets in Resources */,
@@ -240,6 +245,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		ECAD748A2467C1F600F3FC8B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Swiftlint\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -66,7 +66,12 @@ class Conductor: AKMIDIListener, ObservableObject {
 
         mixer = AKMixer(synth)
         AudioKit.output = mixer
-        try! AudioKit.start()
+        
+        do {
+            try AudioKit.start()
+        } catch {
+            AKLog("AudioKit did not start!")
+        }
     }
 
     func receivedMIDINoteOn(noteNumber: MIDINoteNumber,
@@ -113,7 +118,6 @@ class Conductor: AKMIDIListener, ObservableObject {
             self.noteThreePressed = true
             self.noteFourPressed = true
             self.noteFivePressed = true
-            
             
             //-----------------------------------------
             // Synth methods
