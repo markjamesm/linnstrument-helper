@@ -45,7 +45,17 @@ class Conductor: AKMIDIListener, ObservableObject {
     let midi = AudioKit.midi
     let midiEngine = MIDIEngine()
 
-    let synth = AKSynth(masterVolume: 0.5, pitchBend: 0.0, vibratoDepth: 0.0, filterCutoff: 2.0, filterStrength: 0.5, filterResonance: 0.0, attackDuration: 0.1, decayDuration: 0.0, sustainLevel: 1.0, releaseDuration: 0.2, filterEnable: true)
+    let synth = AKSynth(masterVolume: 0.5,
+                        pitchBend: 0.0,
+                        vibratoDepth: 0.0,
+                        filterCutoff: 2.0,
+                        filterStrength: 0.5,
+                        filterResonance: 0.0,
+                        attackDuration: 0.1,
+                        decayDuration: 0.0,
+                        sustainLevel: 1.0,
+                        releaseDuration: 0.2,
+                        filterEnable: true)
 
     var mixer = AKMixer()
 
@@ -56,7 +66,7 @@ class Conductor: AKMIDIListener, ObservableObject {
 
         mixer = AKMixer(synth)
         AudioKit.output = mixer
-           try! AudioKit.start()
+        try! AudioKit.start()
     }
 
     func receivedMIDINoteOn(noteNumber: MIDINoteNumber,
@@ -67,7 +77,7 @@ class Conductor: AKMIDIListener, ObservableObject {
 
         DispatchQueue.main.async {
 
-            // Publish aome MIDI data
+            // Publish some MIDI data
             self.velocity = velocity
             self.channel = channel + 1
             
@@ -164,7 +174,7 @@ class Conductor: AKMIDIListener, ObservableObject {
          synth.play(noteNumber: noteNumber, velocity: velocity)
        }
 
-       func stopNote(noteNumber: UInt8) {
-         synth.stop(noteNumber: noteNumber)
-       }
+    func stopNote(noteNumber: UInt8) {
+        synth.stop(noteNumber: noteNumber)
+    }
 }
