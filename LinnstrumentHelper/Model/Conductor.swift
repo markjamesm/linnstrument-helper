@@ -32,11 +32,11 @@ class Conductor: AKMIDIListener, ObservableObject {
     @Published var noteFiveName: String = " "
     @Published var notesHeld: [UInt8] = [0]
     @Published var noteNames: [UInt8] = [0]
-    @Published var noteOnePressed: Bool
-    @Published var noteTwoPressed: Bool
-    @Published var noteThreePressed: Bool
-    @Published var noteFourPressed: Bool
-    @Published var noteFivePressed: Bool
+    @Published var noteOnePressed: Bool = false
+    @Published var noteTwoPressed: Bool = false
+    @Published var noteThreePressed: Bool = false
+    @Published var noteFourPressed: Bool = false
+    @Published var noteFivePressed: Bool = false
     @Published var velocity: UInt8 = 0
     @Published var channel: UInt8 = 0
 
@@ -51,11 +51,6 @@ class Conductor: AKMIDIListener, ObservableObject {
 
     init() {
 
-        self.noteOnePressed = false
-        self.noteTwoPressed = false
-        self.noteThreePressed = false
-        self.noteFourPressed = false
-        self.noteFivePressed = false
 
         midi.openInput(name: "Session 1")
         midi.addListener(self)
