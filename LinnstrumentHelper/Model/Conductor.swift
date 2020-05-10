@@ -13,17 +13,17 @@ import Combine
 
 class Conductor: AKMIDIListener, ObservableObject {
 
-    @Published var noteNumber: UInt8? = nil
-    @Published var note1: UInt8? = nil
-    @Published var note2: UInt8? = nil
-    @Published var note3: UInt8? = nil
-    @Published var note4: UInt8? = nil
-    @Published var note5: UInt8? = nil
-    @Published var smallNote1GridPos: UInt8? = nil
-    @Published var smallNote2GridPos: UInt8? = nil
-    @Published var smallNote3GridPos: UInt8? = nil
-    @Published var smallNote4GridPos: UInt8? = nil
-    @Published var smallNote5GridPos: UInt8? = nil
+    @Published var noteNumber: UInt8?
+    @Published var note1: UInt8?
+    @Published var note2: UInt8?
+    @Published var note3: UInt8?
+    @Published var note4: UInt8?
+    @Published var note5: UInt8?
+    @Published var smallNote1GridPos: UInt8?
+    @Published var smallNote2GridPos: UInt8?
+    @Published var smallNote3GridPos: UInt8?
+    @Published var smallNote4GridPos: UInt8?
+    @Published var smallNote5GridPos: UInt8?
     @Published var lastNote: UInt8 = 0
     @Published var noteOneName: String = " "
     @Published var noteTwoName: String = " "
