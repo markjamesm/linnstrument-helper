@@ -13,17 +13,17 @@ import Combine
 
 class Conductor: AKMIDIListener, ObservableObject {
 
-    @Published var noteNumber: UInt8? = nil
-    @Published var note1: UInt8? = nil
-    @Published var note2: UInt8? = nil
-    @Published var note3: UInt8? = nil
-    @Published var note4: UInt8? = nil
-    @Published var note5: UInt8? = nil
-    @Published var smallNote1GridPos: UInt8? = nil
-    @Published var smallNote2GridPos: UInt8? = nil
-    @Published var smallNote3GridPos: UInt8? = nil
-    @Published var smallNote4GridPos: UInt8? = nil
-    @Published var smallNote5GridPos: UInt8? = nil
+    @Published var noteNumber: UInt8?
+    @Published var note1: UInt8?
+    @Published var note2: UInt8?
+    @Published var note3: UInt8?
+    @Published var note4: UInt8?
+    @Published var note5: UInt8?
+    @Published var smallNote1GridPos: UInt8?
+    @Published var smallNote2GridPos: UInt8?
+    @Published var smallNote3GridPos: UInt8?
+    @Published var smallNote4GridPos: UInt8?
+    @Published var smallNote5GridPos: UInt8?
     @Published var lastNote: UInt8 = 0
     @Published var noteOneName: String = " "
     @Published var noteTwoName: String = " "
@@ -32,11 +32,11 @@ class Conductor: AKMIDIListener, ObservableObject {
     @Published var noteFiveName: String = " "
     @Published var notesHeld: [UInt8] = [0]
     @Published var noteNames: [UInt8] = [0]
-    @Published var noteOnePressed: Bool
-    @Published var noteTwoPressed: Bool
-    @Published var noteThreePressed: Bool
-    @Published var noteFourPressed: Bool
-    @Published var noteFivePressed: Bool
+    @Published var noteOnePressed: Bool = false
+    @Published var noteTwoPressed: Bool = false
+    @Published var noteThreePressed: Bool = false
+    @Published var noteFourPressed: Bool = false
+    @Published var noteFivePressed: Bool = false
     @Published var velocity: UInt8 = 0
     @Published var channel: UInt8 = 0
 
@@ -45,24 +45,28 @@ class Conductor: AKMIDIListener, ObservableObject {
     let midi = AudioKit.midi
     let midiEngine = MIDIEngine()
 
-    let synth = AKSynth(masterVolume: 0.5, pitchBend: 0.0, vibratoDepth: 0.0, filterCutoff: 2.0, filterStrength: 0.5, filterResonance: 0.0, attackDuration: 0.1, decayDuration: 0.0, sustainLevel: 1.0, releaseDuration: 0.2, filterEnable: true)
+    let synth = AKSynth(masterVolume: 0.5,
+                        pitchBend: 0.0,
+                        vibratoDepth: 0.0,
+                        filterCutoff: 2.0,
+                        filterStrength: 0.5,
+                        filterResonance: 0.0,
+                        attackDuration: 0.1,
+                        decayDuration: 0.0,
+                        sustainLevel: 1.0,
+                        releaseDuration: 0.2,
+                        filterEnable: true)
 
     var mixer = AKMixer()
 
     init() {
 
-        self.noteOnePressed = false
-        self.noteTwoPressed = false
-        self.noteThreePressed = false
-        self.noteFourPressed = false
-        self.noteFivePressed = false
-
-        midi.openInput(name: "Session 1")
+        midi.openInput()
         midi.addListener(self)
 
         mixer = AKMixer(synth)
         AudioKit.output = mixer
-           try! AudioKit.start()
+        try! AudioKit.start()
     }
 
     func receivedMIDINoteOn(noteNumber: MIDINoteNumber,
@@ -73,7 +77,7 @@ class Conductor: AKMIDIListener, ObservableObject {
 
         DispatchQueue.main.async {
 
-            // Publish aome MIDI data
+            // Publish some MIDI data
             self.velocity = velocity
             self.channel = channel + 1
             
@@ -170,7 +174,7 @@ class Conductor: AKMIDIListener, ObservableObject {
          synth.play(noteNumber: noteNumber, velocity: velocity)
        }
 
-       func stopNote(noteNumber: UInt8) {
-         synth.stop(noteNumber: noteNumber)
-       }
+    func stopNote(noteNumber: UInt8) {
+        synth.stop(noteNumber: noteNumber)
+    }
 }
