@@ -23,7 +23,7 @@ Currently in a beta stage, Linnstrument helper makes use of the [AudioKit](https
 
 ## Installation Instructions
 
-- Download Linnstrument Helper 1.1 and unzip.
+- [Download Linnstrument Helper 1.1](https://github.com/markjamesm/linnstrument-helper/releases/download/1.1/Linnstrument-Helper-1.1.zip) and unzip.
 - Connect your Linnstrument to your computer and power it on.
 - Set the octave to be in the middle.
 - Run Linnstrument Helper and have fun!
